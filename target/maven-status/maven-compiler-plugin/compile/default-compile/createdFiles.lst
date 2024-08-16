@@ -1,0 +1,6 @@
+com/library/books/GraphicNovel.class
+com/library/LibrarySystemAPI.class
+com/library/books/PrintSize.class
+com/library/books/Book.class
+com/library/books/Novel.class
+com/library/controller/NovelController.class
