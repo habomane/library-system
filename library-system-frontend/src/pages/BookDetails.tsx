@@ -1,10 +1,5 @@
-function BookDetailsPage()
-{
-    return (
-        <main>
-            hello
-        </main>
-    )
+function BookDetailsPage() {
+  return <main>hello</main>;
 }
 
 export default BookDetailsPage;

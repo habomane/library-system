@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { UserContext } from "../App";
+
 function Header() {
     const [navOpenDisplay, toggleNavOpenDisplay] = useState(false);
+    const [user, setUser] = useContext(UserContext);
+
     const navClassName =
       navOpenDisplay === true
         ? "z-30 open block lg:hidden focus:outline-none hamburger"
@@ -16,7 +20,7 @@ function Header() {
 
     return (
       <nav className="container mx-auto font-head py-5 px-10 lg:px-2 flex justify-between items-center">
-          <Link to="/"><p className="text-lg font-bold uppercase tracking-wide	"><span className=" text-green-700">Community</span> Library</p></Link>
+          <Link to={user.id === 0 ? "/" : "/library"}><p className="text-lg font-bold uppercase tracking-wide	"><span className=" text-green-700">Community</span> Library</p></Link>
 
           <div onClick={toggleDisplay}>
           <button id="menu-btn" className={navClassName + " mr-10"}>
@@ -28,15 +32,16 @@ function Header() {
 
 
         <div className={regularNavDisplay}>
-            <Link to="/"><a className="cursor font-medium hover:underline hover:underline-offset-8 active:text-green-700">My Library</a></Link>
-            <Link to="/"><a className="cursor font-medium hover:underline hover:underline-offset-8 active:text-green-700">Discover</a></Link>
-            <Link to="/"><a className="cursor font-medium hover:underline hover:underline-offset-8 active:text-green-700">Account</a></Link>
+            <Link to="/library"><p className="cursor font-medium hover:underline hover:underline-offset-8 active:text-green-700">My Library</p></Link>
+            <Link to="/discover"><p className="cursor font-medium hover:underline hover:underline-offset-8 active:text-green-700">Discover</p></Link>
+            <Link to={user.id === 0 ? "/signup" : "/account/:" + user.id}><p className="cursor font-medium hover:underline hover:underline-offset-8 active:text-green-700">{user.id === 0 ? "Sign Up" : "Account"}</p></Link>
           </div>
 
           <div className={itemOpenDisplay}>
-            <Link to="/"><a className="cursor font-medium hover:underline hover:underline-offset-8 active:text-green-700">My Library</a></Link>
-            <Link to="/"><a className="cursor font-medium hover:underline hover:underline-offset-8 active:text-green-700">Discover</a></Link>
-            <Link to="/"><a className="cursor font-medium hover:underline hover:underline-offset-8 active:text-green-700">Account</a></Link>
+            <Link to="/library"><p className="cursor font-medium hover:underline hover:underline-offset-8 active:text-green-700">My Library</p></Link>
+            <Link to="/discover"><p className="cursor font-medium hover:underline hover:underline-offset-8 active:text-green-700">Discover</p></Link>
+            <Link to={user.id === 0 ? "/signup" : "/account/:" + user.id}>
+            <p className="cursor font-medium hover:underline hover:underline-offset-8 active:text-green-700">{user.id === 0 ? "Sign Up" : "Account"}</p></Link>
           </div>
       </nav>
     );
