@@ -1,8 +1,9 @@
 import { Book } from "../models/";
-
-export const book1 = new Book(
+import { BookGenre } from "../types";
+export const mockBook1 = new Book(
     "To Kill a Mockingbird",
     "Harper Lee",
+  BookGenre.FICTION,
     "https://example.com/tokillamockingbird.jpg",
     true,
     "12345",
@@ -10,9 +11,10 @@ export const book1 = new Book(
     "harperfan123"
 );
 
-export const book2 = new Book(
+export const mockBook2 = new Book(
     "1984",
     "George Orwell",
+  BookGenre.THRILLER, 
     "https://example.com/1984.jpg",
     true,
     "23456",
@@ -20,9 +22,10 @@ export const book2 = new Book(
     "orwellian89"
 );
 
-export const book3 = new Book(
+export const mockBook3 = new Book(
     "Pride and Prejudice",
     "Jane Austen",
+  BookGenre.ROMANCE, 
     "https://example.com/prideandprejudice.jpg",
     false,
     "34567",
@@ -30,9 +33,10 @@ export const book3 = new Book(
     "austenlover"
 );
 
-export const book4 = new Book(
+export const mockBook4 = new Book(
     "The Great Gatsby",
     "F. Scott Fitzgerald",
+  BookGenre.DYSTOPIAN,
     "https://example.com/thegreatgatsby.jpg",
     true,
     "45678",
@@ -40,9 +44,10 @@ export const book4 = new Book(
     "gatsbyfanatic"
 );
 
-export const book5 = new Book(
+export const mockBook5 = new Book(
     "Moby-Dick",
     "Herman Melville",
+  BookGenre.ADVENTURE,
     "https://example.com/mobydick.jpg",
     true,
     "56789",
@@ -50,9 +55,10 @@ export const book5 = new Book(
     "whalewatcher"
 );
 
-export const book6 = new Book(
+export const mockBook6 = new Book(
     "War and Peace",
     "Leo Tolstoy",
+  BookGenre.HISTORICAL_FICTION,
     "https://example.com/warandpeace.jpg",
     false,
     "67890",
@@ -60,9 +66,10 @@ export const book6 = new Book(
     "tolstoy_fan"
 );
 
-export const book7 = new Book(
+export const mockBook7 = new Book(
     "The Catcher in the Rye",
     "J.D. Salinger",
+  BookGenre.FICTION,
     "https://example.com/thecatcherintherye.jpg",
     true,
     "78901",
@@ -70,9 +77,10 @@ export const book7 = new Book(
     "salingerfan"
 );
 
-export const book8 = new Book(
+export const mockBook8 = new Book(
     "The Hobbit",
     "J.R.R. Tolkien",
+  BookGenre.FICTION,
     "https://example.com/thehobbit.jpg",
     true,
     "89012",
@@ -80,19 +88,21 @@ export const book8 = new Book(
     "middleearthlover"
 );
 
-export const book9 = new Book(
+export const mockBook9 = new Book(
     "Fahrenheit 451",
     "Ray Bradbury",
+  BookGenre.HISTORICAL_FICTION,
     "https://example.com/fahrenheit451.jpg",
     true,
     "90123",
-    "A dystopian novel about a future society where books are banned and burned.",
+    "A dystopian novel about a future society wheremockBooks are banned and burned.",
     "bradburysburners"
 );
 
-export const book10 = new Book(
+export const mockBook10 = new Book(
     "Jane Eyre",
     "Charlotte Brontë",
+  BookGenre.BIOGRAPHY,
     "https://example.com/janeeyre.jpg",
     false,
     "01234",
@@ -100,9 +110,10 @@ export const book10 = new Book(
     "charlottefan"
 );
 
-export const book11 = new Book(
+export const mockBook11 = new Book(
     "Crime and Punishment",
     "Fyodor Dostoevsky",
+  BookGenre.THRILLER,
     "https://example.com/crimeandpunishment.jpg",
     true,
     "12345",
@@ -110,9 +121,10 @@ export const book11 = new Book(
     "dostoevsky_fan"
 );
 
-export const book12 = new Book(
+export const mockBook12 = new Book(
     "The Lord of the Rings",
     "J.R.R. Tolkien",
+  BookGenre.FANTASY,
     "https://example.com/thelordoftherings.jpg",
     true,
     "23456",
@@ -120,9 +132,10 @@ export const book12 = new Book(
     "ringbearer"
 );
 
-export const book13 = new Book(
+export const mockBook13 = new Book(
     "The Catcher in the Rye",
     "J.D. Salinger",
+  BookGenre.FICTION,
     "https://example.com/thecatcherintherye.jpg",
     true,
     "34567",
@@ -130,9 +143,10 @@ export const book13 = new Book(
     "holden_lover"
 );
 
-export const book14 = new Book(
+export const mockBook14 = new Book(
     "Brave New World",
     "Aldous Huxley",
+  BookGenre.DYSTOPIAN,
     "https://example.com/bravenewworld.jpg",
     true,
     "45678",
@@ -140,9 +154,10 @@ export const book14 = new Book(
     "huxleyfan"
 );
 
-export const book15 = new Book(
+export const mockBook15 = new Book(
     "Wuthering Heights",
     "Emily Brontë",
+  BookGenre.HISTORICAL_FICTION,
     "https://example.com/wutheringheights.jpg",
     true,
     "56789",
@@ -150,9 +165,10 @@ export const book15 = new Book(
     "bronte_sister"
 );
 
-export const book16 = new Book(
+export const mockBook16 = new Book(
     "The Odyssey",
     "Homer",
+  BookGenre.FICTION,
     "https://example.com/theodyssey.jpg",
     true,
     "67890",
@@ -160,9 +176,10 @@ export const book16 = new Book(
     "ancientadventures"
 );
 
-export const book17 = new Book(
+export const mockBook17 = new Book(
     "The Brothers Karamazov",
     "Fyodor Dostoevsky",
+  BookGenre.HORROR,
     "https://example.com/thebrotherskaramazov.jpg",
     true,
     "78901",
@@ -170,9 +187,10 @@ export const book17 = new Book(
     "russianlitlover"
 );
 
-export const book18 = new Book(
+export const mockBook18 = new Book(
     "Anna Karenina",
     "Leo Tolstoy",
+  BookGenre.ROMANCE,
     "https://example.com/annakarenina.jpg",
     false,
     "89012",
@@ -180,9 +198,10 @@ export const book18 = new Book(
     "annalover"
 );
 
-export const book19 = new Book(
+export const mockBook19 = new Book(
     "Don Quixote",
     "Miguel de Cervantes",
+  BookGenre.THRILLER,
     "https://example.com/donquixote.jpg",
     true,
     "90123",
@@ -190,9 +209,10 @@ export const book19 = new Book(
     "windmillwarrior"
 );
 
-export const book20 = new Book(
+export const mockBook20 = new Book(
     "The Divine Comedy",
     "Dante Alighieri",
+  BookGenre.CRIME,
     "https://example.com/thedivinecomedy.jpg",
     true,
     "01234",
@@ -201,8 +221,8 @@ export const book20 = new Book(
 );
 
 
-export const allBooks = [book1, book2, book3, book4, book5, book6, 
-    book7, book8, book9, book10,
-    book11, book12, book13, book14, book15, book16, 
-    book17, book18, book19, book20
+export const allBooksMock = [mockBook1,mockBook2,mockBook3,mockBook4,mockBook5,mockBook6, 
+   mockBook7,mockBook8,mockBook9,mockBook10,
+   mockBook11,mockBook12,mockBook13,mockBook14,mockBook15,mockBook16, 
+   mockBook17,mockBook18,mockBook19,mockBook20
 ];
