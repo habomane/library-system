@@ -1,13 +1,14 @@
 import { Book } from "../../models";
+import { Link } from "react-router-dom";
 
 function BookCard({ book }: { book: Book }) {
   return (
     <div className="w-[65%] md:w-[25%]">
       <div className="bg-white rounded-lg shadow-lg">
         <img
-          src="https://images.unsplash.com/photo-1600054800747-be294a6a0d26?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1053&q=80"
+          src={book.image}
           alt=""
-          className="rounded-t-lg"
+          className="rounded-t-lg h-[30vh] w-screen"
         />
         <div className="p-6">
           <h2 className="font-bold mb-2 text-xl">
@@ -22,12 +23,13 @@ function BookCard({ book }: { book: Book }) {
           </p>
           </div>
 
-          <a
-            href="#"
-            className="text-purple-600 hover:text-purple-500 underline text-sm"
+        <Link to={`/details/${book.id}`}>
+          <p
+            className="hover:text-green-700 font-semibold cursor underline underline-offset-4 text-sm"
           >
-            Read More 👉
-          </a>
+            More Details
+          </p>
+          </Link>
         </div>
       </div>
     </div>

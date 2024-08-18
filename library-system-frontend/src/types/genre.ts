@@ -1,6 +1,6 @@
 export const BookGenre = {
     FICTION: "Fiction",
-    SCIENCE_FICTION: "Science Fiction (Sci-Fi)",
+    SCIENCE_FICTION: "Science Fiction",
     FANTASY: "Fantasy",
     MYSTERY: "Mystery",
     THRILLER: "Thriller",
@@ -8,8 +8,8 @@ export const BookGenre = {
     HORROR: "Horror",
     HISTORICAL_FICTION: "Historical Fiction",
     NON_FICTION: "Non-Fiction",
-    BIOGRAPHY: "Biography/Autobiography",
-    YOUNG_ADULT: "Young Adult (YA)",
+    BIOGRAPHY: "Biography",
+    YOUNG_ADULT: "Young Adult",
     DYSTOPIAN: "Dystopian",
     CRIME: "Crime",
     ADVENTURE: "Adventure",

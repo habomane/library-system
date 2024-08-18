@@ -1,4 +1,5 @@
 export class Book {
+  id: number;
   title: string;
   author: string;
   image: string;
@@ -9,6 +10,7 @@ export class Book {
   genre: string;
 
   constructor(
+    id: number, 
     title: string,
     author: string,
     genre: string,
@@ -18,6 +20,7 @@ export class Book {
     description: string,
     ownerUsername: string
   ) {
+    this.id = id;
     this.title = title;
     this.author = author;
     this.image = image;
