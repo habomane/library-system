@@ -51,8 +51,8 @@ function BookDetailsPage() {
                 </p>
 
                 <div className="flex flex-row items-center w-full justify-center md:justify-normal gap-x-5 md:w-[40%] mt-10">
-                <button className="rounded-lg px-4 py-2 bg-green-300 hover:bg-green-700 hover:text-white duration-300">Request</button>
-                <button className="rounded-lg px-4 py-2 bg-yellow-500 hover:bg-yellow-800 hover:text-white duration-300">Favorite</button>
+                <button className="rounded-lg px-4 py-2 font-medium bg-green-300 hover:bg-green-700 hover:text-white duration-300">Request</button>
+                <button className="rounded-lg px-4 py-2 font-medium bg-yellow-500 hover:bg-yellow-800 hover:text-white duration-300">Favorite</button>
                 </div>
                 </div>
 
