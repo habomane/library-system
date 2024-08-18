@@ -9,3 +9,8 @@ export function queryBooks(query: string, items: Book[])
     return matchedNames.concat(matchedAuthors).concat(matchedGenres)
 
 }
+
+export function findBook(id: number, items: Book[])
+{
+    return items.find(book => book.id === id);
+}

@@ -2,6 +2,7 @@ import { allBooksMock } from "../mock";
 import { useState, useEffect } from "react";
 import { Book } from "../models";
 import { queryBooks } from "../helper";
+
 // Components 
 import BookCard from "../utilities/items/BookCard";
 import SearchBar from "../utilities/search/SearchBar";
@@ -17,15 +18,15 @@ function DiscoverPage()
         if(query === "") { setAllBooks(allBooksMock)}
         else 
         {
-            const filteredBooks = queryBooks(query, allBooks);
+            const filteredBooks = queryBooks(query, allBooksMock);
             setAllBooks(filteredBooks);
         }
 
     }, [query])
     return (
         <main className="container  mx-auto">
-            <div className="">
             <SearchBar setQuery={setQuery}></SearchBar>
+            <div className={allBooks.length === 0 ? "hidden" : ""}>
 
             <div className="flex flex-wrap justify-center items-center gap-y-5 gap-x-5 py-5">
                 {
@@ -36,7 +37,10 @@ function DiscoverPage()
             </div>
             </div>
 
-            <div className=""></div>
+            <div className={allBooks.length === 0 ? "flex justify-center flex-col h-[80%] gap-y-2 items-center" : "hidden"}>
+                <h1 className="text-2xl font-bold">No Items Found</h1>
+                <p className="text-md font-medium text-gray-500">Please Try Again</p>
+            </div>
 
         </main>
     )
