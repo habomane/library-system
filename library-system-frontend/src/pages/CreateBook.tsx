@@ -27,7 +27,7 @@ function CreateBook() {
   return (
     <main className="container mx-auto">
       <div className="flex flex-col gap-y-3 gap-x-3 items-center mt-8">
-        <div className="w-full bg-white rounded-lg shadow-xl ">
+        <div className="w-full bg-white rounded-lg shadow-2xl ">
           <div className="py-12 px-5 md:pl-10">
             <div className="flex flex-row gap-x-2">
               <label className="text-3xl font-bold tracking-widest">
@@ -35,7 +35,7 @@ function CreateBook() {
               </label>
               <input
                 type="text"
-                className="border text-slate-500 border-slate-300 rounded-sm focus:outline-none
+                className="border text-slate-500 border-slate-400 rounded-sm focus:outline-none
                 focus:border-green-700"
               />
             </div>
@@ -52,7 +52,7 @@ function CreateBook() {
               <label className="text-lg text-slate-500">Author:</label>
               <input
                 type="text"
-                className="border text-slate-500 border-slate-300 rounded-sm focus:outline-none
+                className="border text-slate-500 border-slate-400 rounded-sm focus:outline-none
                 focus:border-green-700"
               />
             </div>
@@ -61,7 +61,7 @@ function CreateBook() {
               <label className="text-lg text-slate-500">Genre:</label>
               <input
                 type="text"
-                className="border text-slate-500 border-slate-300 rounded-sm focus:outline-none
+                className="border text-slate-500 border-slate-400 rounded-sm focus:outline-none
                 focus:border-green-700"
               />
             </div>
@@ -70,7 +70,7 @@ function CreateBook() {
               <label className="text-lg text-slate-500">Zipcode:</label>
               <input
                 type="text"
-                className="border text-slate-500 border-slate-300 rounded-sm focus:outline-none
+                className="border text-slate-500 border-slate-400 rounded-sm focus:outline-none
                 focus:border-green-700"
               />
             </div>
@@ -82,7 +82,7 @@ function CreateBook() {
                 name="id-l03"
                 rows={3}
                 placeholder="Write your message"
-                className="peer relative w-full rounded border border-slate-200 p-4 text-slate-500 outline-none transition-all autofill:bg-white invalid:border-pink-500 invalid:text-pink-500 focus:border-green-700 focus:outline-none invalid:focus:border-pink-500 disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-400"
+                className="peer relative w-full rounded border border-slate-300 p-4 text-slate-500 outline-none transition-all autofill:bg-white invalid:border-pink-500 invalid:text-pink-500 focus:border-green-700 focus:outline-none invalid:focus:border-pink-500 disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-400"
               ></textarea>
             </div>
 

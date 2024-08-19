@@ -4,18 +4,45 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bd565107-a500-4837-8040-d3a27809464a" name="Changes" comment="" />
+    <list default="true" id="bd565107-a500-4837-8040-d3a27809464a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/library/books/repositories/BookRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/library/controller/BookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/LibrarySystemAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/LibrarySystemAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/books/entities/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/books/entities/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/books/entities/GraphicNovel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/books/entities/Novel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/books/entities/PrintSize.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/books/repositories/GraphicNovelRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/controller/NovelController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/LibrarySystem-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/LibrarySystem-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/library/books/entities/Book.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/library/books/entities/Book.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/library/books/entities/GraphicNovel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/library/books/entities/Novel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/library/books/entities/PrintSize.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/library/books/repositories/GraphicNovelRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../library-system-frontend/src/pages/CreateBook.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../library-system-frontend/src/pages/CreateBook.tsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 0
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2kiOjLCIWwl8nXWnLHItMmNpvdB" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -23,11 +50,33 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.LibrarySystemAPI.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/habsoomane/Projects/library-system/library-system-backend",
     "onboarding.tips.debug.path": "/Users/habsoomane/Projects/library-system/LibrarySystem/src/main/java/org/example/Main.java"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="LibrarySystemAPI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.library.LibrarySystemAPI" />
+      <module name="LibrarySystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.library.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.LibrarySystemAPI" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

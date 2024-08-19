@@ -1,4 +1,4 @@
-package com.library.controller;
+package com.library.controllers;
 
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class NovelController {
+public class BookController {
 
     // Example Request
     @RequestMapping("/hello")
