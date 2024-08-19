@@ -1,4 +1,10 @@
+com/library/repositories/BookRepository.class
+com/library/types/BookGenre.class
+com/library/dtos/BookDTO.class
+com/library/MongoDBConfiguration.class
+com/library/services/BookService.class
 com/library/LibrarySystemAPI.class
-com/library/controller/NovelController.class
-com/library/books/repositories/BookRepository.class
-com/library/books/entities/Book.class
+com/library/repositories/DBBookRepoistory.class
+com/library/controllers/BookController.class
+com/library/services/BookServiceImpl.class
+com/library/models/BookEntity.class

@@ -13,7 +13,7 @@ public class BookEntity {
     private String description;
     private boolean available ;
 
-    BookEntity(String title, String author, BookGenre genre, String image, String zipcode,
+    public BookEntity(String title, String author, BookGenre genre, String image, String zipcode,
          String description, boolean available)
     {
         this.title = title;
@@ -24,6 +24,8 @@ public class BookEntity {
         this.description = description;
         this.available = available;
     }
+
+    public ObjectId getId() { return id;}
 
     public String getTitle()
     {

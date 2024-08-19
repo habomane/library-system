@@ -25,6 +25,7 @@ public class MongoDBConfiguration {
         CodecRegistry codecRegistry = fromRegistries(MongoClientSettings.getDefaultCodecRegistry(), pojoCodecRegistry);
         return MongoClients.create(MongoClientSettings.builder()
                 .applyConnectionString(new ConnectionString(connectionString))
+                .applyConnectionString(new ConnectionString(connectionString))
                 .codecRegistry(codecRegistry)
                 .build());
     }

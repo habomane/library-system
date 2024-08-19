@@ -1,4 +1,10 @@
 /Users/habsoomane/Projects/library-system/library-system-backend/src/main/java/com/library/LibrarySystemAPI.java
-/Users/habsoomane/Projects/library-system/library-system-backend/src/main/java/com/library/books/entities/Book.java
-/Users/habsoomane/Projects/library-system/library-system-backend/src/main/java/com/library/books/repositories/BookRepository.java
-/Users/habsoomane/Projects/library-system/library-system-backend/src/main/java/com/library/controller/NovelController.java
+/Users/habsoomane/Projects/library-system/library-system-backend/src/main/java/com/library/MongoDBConfiguration.java
+/Users/habsoomane/Projects/library-system/library-system-backend/src/main/java/com/library/controllers/BookController.java
+/Users/habsoomane/Projects/library-system/library-system-backend/src/main/java/com/library/dtos/BookDTO.java
+/Users/habsoomane/Projects/library-system/library-system-backend/src/main/java/com/library/models/BookEntity.java
+/Users/habsoomane/Projects/library-system/library-system-backend/src/main/java/com/library/repositories/BookRepository.java
+/Users/habsoomane/Projects/library-system/library-system-backend/src/main/java/com/library/repositories/DBBookRepoistory.java
+/Users/habsoomane/Projects/library-system/library-system-backend/src/main/java/com/library/services/BookService.java
+/Users/habsoomane/Projects/library-system/library-system-backend/src/main/java/com/library/services/BookServiceImpl.java
+/Users/habsoomane/Projects/library-system/library-system-backend/src/main/java/com/library/types/BookGenre.java
