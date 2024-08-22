@@ -10,6 +10,10 @@ import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoCollection;
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Repository;
+import com.mongodb.client.model.Filters;
+import org.bson.types.ObjectId;
+import org.bson.conversions.Bson;
+import org.bson.Document;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,15 +59,18 @@ public class DBBookRepoistory implements BookRepository {
         return bookCollection.find().into(new ArrayList<>());
     }
 
+
 //    @Override
 //    public List<BookEntity> findAll(List<String> ids) {
 //        return List.of();
 //    }
 //
-//    @Override
-//    public BookEntity findOne(String id) {
-//        return null;
-//    }
+    @Override
+    public BookEntity findOne(String id) {
+        ObjectId objectId = new ObjectId(id);
+        Bson filter = Filters.eq("_id", objectId);
+        return bookCollection.find(filter).first();
+    }
 //
 //    @Override
 //    public long delete(String id) {

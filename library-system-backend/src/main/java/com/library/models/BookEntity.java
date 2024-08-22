@@ -2,9 +2,13 @@ package com.library.models;
 
 import org.bson.types.ObjectId;
 import com.library.types.BookGenre;
+import org.bson.Document;
+
+import java.awt.print.Book;
+
 public class BookEntity {
 
-    private ObjectId id = new ObjectId();
+    private ObjectId id;
     private String title;
     private String author;
     private BookGenre genre;
@@ -13,9 +17,12 @@ public class BookEntity {
     private String description;
     private boolean available ;
 
+    public BookEntity(){}
+
     public BookEntity(String title, String author, BookGenre genre, String image, String zipcode,
          String description, boolean available)
     {
+        this.id = new ObjectId();
         this.title = title;
         this.author = author;
         this.genre = genre;
@@ -24,6 +31,20 @@ public class BookEntity {
         this.description = description;
         this.available = available;
     }
+
+    public BookEntity(Document bookDocument)
+    {
+        this.id = bookDocument.getObjectId("_id");
+        this.title = bookDocument.getString("title");
+        this.author = bookDocument.getString("author");
+        this.genre = BookGenre.valueOf(bookDocument.getString("genre"));
+        this.zipcode = bookDocument.getString("zipcode");
+        this.description = bookDocument.getString("description");
+        this.available = bookDocument.getBoolean("available");
+
+    }
+
+
 
     public ObjectId getId() { return id;}
 

@@ -5,21 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd565107-a500-4837-8040-d3a27809464a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/library/dtos/BookDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/library/services/BookService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/library/services/BookServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/MongoDBConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/MongoDBConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/library/controllers/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/controllers/BookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/dtos/BookDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/dtos/BookDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/library/models/BookEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/models/BookEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/library/repositories/BookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/repositories/BookRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/library/repositories/DBBookRepoistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/repositories/DBBookRepoistory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/library/LibrarySystemAPI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/library/LibrarySystemAPI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/library/books/entities/Book.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/library/books/repositories/BookRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/library/controller/BookController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/services/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/services/BookService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/services/BookServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/services/BookServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/LibrarySystem-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/LibrarySystem-1.0-SNAPSHOT.jar" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,16 +41,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.LibrarySystemAPI.executor": "Run",
-    "Docker.docker-compose.yaml: Compose Deployment.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/habsoomane/Projects/library-system/library-system-backend",
-    "onboarding.tips.debug.path": "/Users/habsoomane/Projects/library-system/LibrarySystem/src/main/java/org/example/Main.java"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.LibrarySystemAPI.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.yaml: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/habsoomane/Projects/library-system/library-system-backend&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/habsoomane/Projects/library-system/LibrarySystem/src/main/java/org/example/Main.java&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
@@ -75,7 +72,9 @@
       </method>
     </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
-      <deployment type="docker-compose.yml" />
+      <deployment type="docker-compose.yml">
+        <settings />
+      </deployment>
       <method v="2" />
     </configuration>
     <configuration name="docker-compose.yaml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">

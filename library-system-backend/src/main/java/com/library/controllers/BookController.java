@@ -1,7 +1,9 @@
 package com.library.controllers;
 
+import com.library.models.BookEntity;
 import com.library.services.BookService;
 import com.library.dtos.BookDTO;
+import org.bson.types.ObjectId;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -25,13 +27,31 @@ public class BookController {
     {
         this.bookService = bookService;
     }
-
-    // Example Request
-    @GetMapping("books")
+    // GET
+    @GetMapping("/")
     public List<BookDTO> getBooks()
     {
         return bookService.findAll();
     }
+
+    @GetMapping("/{id}")
+    public BookDTO getBook(@PathVariable String id)
+    {
+        return bookService.find(id);
+    }
+
+
+
+
+    @PostMapping("/create")
+    public BookDTO createBook(@RequestBody BookDTO book)
+    {
+        return bookService.post(book);
+    }
+
+
+
+
 
 
 

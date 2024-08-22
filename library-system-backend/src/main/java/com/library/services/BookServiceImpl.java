@@ -20,4 +20,24 @@ public class BookServiceImpl implements BookService{
     public List<BookDTO> findAll() {
         return bookRepository.findAll().stream().map(BookDTO::new).toList();
     }
+
+    @Override
+    public BookDTO post(BookDTO newBook)
+    {
+
+//            if(newBook.title == null || newBook.author == null) { throw new Exception("No title and/or no author provided");}
+            BookEntity createdBookEntity = bookRepository.save(newBook.toBookEntity());
+            return new BookDTO(createdBookEntity);
+
+
+    }
+
+    @Override
+    public BookDTO find(String id)
+    {
+        BookDTO newBook = new BookDTO(bookRepository.findOne(id));
+        return newBook;
+    }
+
+
 }

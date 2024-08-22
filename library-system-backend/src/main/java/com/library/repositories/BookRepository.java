@@ -16,7 +16,7 @@ public interface BookRepository {
 //
 //    List<BookEntity> findAll(List<String> ids);
 //
-//    BookEntity findOne(String id);
+    BookEntity findOne(String id);
 //
 //    long delete(String id);
 //
