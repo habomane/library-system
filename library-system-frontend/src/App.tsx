@@ -1,5 +1,5 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { createContext, useState, useEffect } from 'react';
+import { createContext, useState, useEffect } from "react";
 import { User } from "./models";
 import { getUserDetails, userDetailsExist } from "./helper/user";
 // Components
@@ -14,8 +14,7 @@ import AccountDetailsPage from "./pages/AccountDetailsPage";
 import ErrorBoundary from "./pages/ErrorPage";
 import SignUpPage from "./pages/SignupPage";
 
-export const UserContext = createContext(null);
-
+export const UserContext = createContext<[User, React.Dispatch<React.SetStateAction<User>>] | null>(null);
 
 const routes = createBrowserRouter([
   {
@@ -30,23 +29,24 @@ const routes = createBrowserRouter([
       { path: "/account/:id", element: <AccountDetailsPage /> },
       { path: "/signup", element: <SignUpPage /> },
     ],
-    errorElement: <ErrorBoundary /> 
+    errorElement: <ErrorBoundary />,
   },
 ]);
 
 function App() {
-  const [user, setUser] = useState(new User('', 0, '', ''));
+  const [user, setUser] = useState(new User("", 0, "", ""));
 
   useEffect(() => {
-    if(userDetailsExist()) {
+    if (userDetailsExist()) {
       setUser(getUserDetails());
     }
-  }, [])
-  
-  return ( 
+  }, []);
+
+  return (
     <UserContext.Provider value={[user, setUser]}>
-      <RouterProvider router={routes}/>
-      </UserContext.Provider>);
+      <RouterProvider router={routes} />
+    </UserContext.Provider>
+  );
 }
 
 export default App;

@@ -3,26 +3,28 @@ package com.library.models;
 import org.bson.types.ObjectId;
 import com.library.types.BookGenre;
 import org.bson.Document;
-
+import org.springframework.data.mongodb.core.mapping.Field;
+import java.util.*;
 import java.awt.print.Book;
 
 public class BookEntity {
 
-    private ObjectId id;
+    @Field("_id")
+    private String bookId;
     private String title;
     private String author;
     private BookGenre genre;
     private String image;
     private String zipcode;
     private String description;
-    private boolean available ;
+    private boolean available;
 
-    public BookEntity(){}
+    public BookEntity() {
+    }
 
     public BookEntity(String title, String author, BookGenre genre, String image, String zipcode,
-         String description, boolean available)
-    {
-        this.id = new ObjectId();
+                      String description, boolean available) {
+        this.bookId = new ObjectId().toHexString();
         this.title = title;
         this.author = author;
         this.genre = genre;
@@ -32,11 +34,24 @@ public class BookEntity {
         this.available = available;
     }
 
-    public BookEntity(Document bookDocument)
-    {
-        this.id = bookDocument.getObjectId("_id");
+    public BookEntity(String bookId, String title, String author, BookGenre genre, String image, String zipcode,
+                      String description, boolean available) {
+
+        this.bookId = bookId;
+        this.title = title;
+        this.author = author;
+        this.genre = genre;
+        this.image = image;
+        this.zipcode = zipcode;
+        this.description = description;
+        this.available = available;
+    }
+
+    public BookEntity(Document bookDocument) {
+        this.bookId = bookDocument.getString("_id");
         this.title = bookDocument.getString("title");
         this.author = bookDocument.getString("author");
+        this.image = bookDocument.getString("image");
         this.genre = BookGenre.valueOf(bookDocument.getString("genre"));
         this.zipcode = bookDocument.getString("zipcode");
         this.description = bookDocument.getString("description");
@@ -44,9 +59,27 @@ public class BookEntity {
 
     }
 
+    public Document getBookEntityDocument() {
+        Map<String, Object> data = new HashMap<>() {{
+            put("_id", bookId);
+            put("title", title);
+            put("author", author);
+            put("genre", genre);
+            put("image", image);
+            put("zipcode", zipcode);
+            put("description", description);
+            put("available", available);
+        }};
+
+        Document newDoc = new Document();
+        newDoc.putAll(data);
+
+        return newDoc;
+
+    }
 
 
-    public ObjectId getId() { return id;}
+    public String getId() { return bookId;}
 
     public String getTitle()
     {

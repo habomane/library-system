@@ -1,6 +1,6 @@
-import { useState } from "react";
 
-function SearchBar({setQuery})
+
+function SearchBar({setQuery} : {setQuery: React.Dispatch<React.SetStateAction<string>>})
 {
     return (
     <div className="my-5 mx-20">

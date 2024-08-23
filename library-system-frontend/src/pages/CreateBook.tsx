@@ -8,8 +8,10 @@ import { getLocation } from "../service";
 function CreateBook() {
   const bookDefault = new Book(0, "", "", "", "", false, "", "", "");
   const { id } = useParams();
-  const [book, setBook] = useState(bookDefault);
-  const [formattedAddress, setFormattedAddress] = useState("");
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [,setBook] = useState(bookDefault);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [, setFormattedAddress] = useState("");
 
   useEffect(() => {
     const book = findBook(parseInt(id || "0"), allBooksMock) || bookDefault;

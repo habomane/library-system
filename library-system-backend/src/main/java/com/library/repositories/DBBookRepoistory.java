@@ -9,12 +9,14 @@ import com.mongodb.WriteConcern;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoCollection;
 import jakarta.annotation.PostConstruct;
+import com.library.models.*;
 import org.springframework.stereotype.Repository;
 import com.mongodb.client.model.Filters;
 import org.bson.types.ObjectId;
 import org.bson.conversions.Bson;
 import org.bson.Document;
 
+import javax.print.Doc;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,7 +33,7 @@ public class DBBookRepoistory implements BookRepository {
             .build();
 
     private final MongoClient client;
-    private MongoCollection<BookEntity> bookCollection;
+    private MongoCollection<Document> bookCollection;
 
     public DBBookRepoistory(MongoClient mongoClient) {
         this.client = mongoClient;
@@ -39,13 +41,13 @@ public class DBBookRepoistory implements BookRepository {
 
     @PostConstruct
     void init() {
-        bookCollection = client.getDatabase("library-system").getCollection("books", BookEntity.class);
+        bookCollection = client.getDatabase("library-system").getCollection("books");
     }
 
 
     @Override
     public BookEntity save(BookEntity book) {
-        bookCollection.insertOne(book);
+        bookCollection.insertOne(book.getBookEntityDocument());
         return book;
     }
 
@@ -56,7 +58,7 @@ public class DBBookRepoistory implements BookRepository {
 
     @Override
     public List<BookEntity> findAll() {
-        return bookCollection.find().into(new ArrayList<>());
+        return bookCollection.find().into(new ArrayList<>()).stream().map(BookEntity::new).toList();
     }
 
 
@@ -67,9 +69,9 @@ public class DBBookRepoistory implements BookRepository {
 //
     @Override
     public BookEntity findOne(String id) {
-        ObjectId objectId = new ObjectId(id);
-        Bson filter = Filters.eq("_id", objectId);
-        return bookCollection.find(filter).first();
+//        ObjectId objectId = new ObjectId(id);
+        Bson filter = Filters.eq("author", "habso");
+        return new BookEntity(bookCollection.find(filter).first());
     }
 //
 //    @Override

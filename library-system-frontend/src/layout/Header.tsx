@@ -1,10 +1,22 @@
+
+
 import { Link } from "react-router-dom";
 import { useState, useContext } from "react";
 import { UserContext } from "../App";
 
 function Header() {
     const [navOpenDisplay, toggleNavOpenDisplay] = useState(false);
-    const [user, setUser] = useContext(UserContext);
+
+    // Type Narrowing, can be null or what existed before
+    const context = useContext(UserContext);
+
+    if(!context)
+    {
+      return null;
+    }
+    const [user ] = context;
+
+
 
     const navClassName =
       navOpenDisplay === true
@@ -38,7 +50,10 @@ function Header() {
           </div>
 
           <div className={itemOpenDisplay}>
-            <Link to="/library"><p className="cursor font-medium hover:underline hover:underline-offset-8 active:text-green-700">My Library</p></Link>
+            <Link to="/library"
+            ><p 
+            onClick={() => toggleNavOpenDisplay(!navOpenDisplay)}
+            className="cursor font-medium hover:underline hover:underline-offset-8 active:text-green-700">My Library</p></Link>
             <Link to="/discover"><p className="cursor font-medium hover:underline hover:underline-offset-8 active:text-green-700">Discover</p></Link>
             <Link to={user.id === 0 ? "/signup" : "/account/:" + user.id}>
             <p className="cursor font-medium hover:underline hover:underline-offset-8 active:text-green-700">{user.id === 0 ? "Sign Up" : "Account"}</p></Link>
@@ -48,4 +63,4 @@ function Header() {
   }
   
   export default Header;
-  
+

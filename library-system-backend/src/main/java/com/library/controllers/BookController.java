@@ -29,15 +29,17 @@ public class BookController {
     }
     // GET
     @GetMapping("/")
-    public List<BookDTO> getBooks()
+    public List<BookDTO> getBooks(
+            @RequestParam(required = false) String author
+    )
     {
         return bookService.findAll();
     }
 
     @GetMapping("/{id}")
-    public BookDTO getBook(@PathVariable String id)
+    public ObjectId getBook(@PathVariable String id)
     {
-        return bookService.find(id);
+        return new ObjectId(id);
     }
 
 

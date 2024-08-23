@@ -1,6 +1,7 @@
 package com.library.services;
 
 import com.library.dtos.BookDTO;
+import com.library.models.BookEntity;
 
 import java.util.*;
 

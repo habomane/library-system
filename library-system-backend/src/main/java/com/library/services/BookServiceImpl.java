@@ -5,6 +5,7 @@ import com.library.models.BookEntity;
 import com.library.repositories.BookRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -18,7 +19,14 @@ public class BookServiceImpl implements BookService{
 
     @Override
     public List<BookDTO> findAll() {
-        return bookRepository.findAll().stream().map(BookDTO::new).toList();
+        List<BookDTO> test = new ArrayList<>();
+        List<BookEntity> all = bookRepository.findAll().stream().toList();
+        for(BookEntity book : all)
+        {
+            test.add(new BookDTO(book));
+        }
+
+        return test;
     }
 
     @Override
