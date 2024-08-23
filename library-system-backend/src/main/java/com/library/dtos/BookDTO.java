@@ -34,5 +34,9 @@ public class BookDTO {
         return new BookEntity(title, author, genre, image, zipcode, description, available);
     }
 
+    public BookEntity toExistingBookEntity() {
+        return new BookEntity(bookId, title, author, genre, image, zipcode, description, available);
+    }
+
 }
 

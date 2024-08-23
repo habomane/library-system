@@ -18,33 +18,49 @@ public class BookServiceImpl implements BookService{
     }
 
     @Override
-    public List<BookDTO> findAll() {
-        List<BookDTO> test = new ArrayList<>();
-        List<BookEntity> all = bookRepository.findAll().stream().toList();
-        for(BookEntity book : all)
-        {
-            test.add(new BookDTO(book));
-        }
+    public BookDTO find(String id)
+    {
+        BookDTO newBook = new BookDTO(bookRepository.findOne(id));
+        return newBook;
+    }
 
-        return test;
+    @Override
+    public List<BookDTO> findAll() {
+        return bookRepository.findAll().stream().map(BookDTO:: new).toList();
     }
 
     @Override
     public BookDTO post(BookDTO newBook)
     {
-
-//            if(newBook.title == null || newBook.author == null) { throw new Exception("No title and/or no author provided");}
+          //  if(newBook.title == null || newBook.author == null) { throw new Exception("No title and/or no author provided");}
             BookEntity createdBookEntity = bookRepository.save(newBook.toBookEntity());
             return new BookDTO(createdBookEntity);
-
 
     }
 
     @Override
-    public BookDTO find(String id)
-    {
-        BookDTO newBook = new BookDTO(bookRepository.findOne(id));
-        return newBook;
+    public List<BookDTO> postAll(List<BookDTO> books) {
+        return bookRepository.saveAll(books.stream().map(BookDTO::toBookEntity).toList()).stream().map(BookDTO::new).toList();
+    }
+
+    @Override
+    public BookDTO update(BookDTO book) {
+        return new BookDTO(bookRepository.update(book.toExistingBookEntity()));
+    }
+
+    @Override
+    public List<BookDTO> updateAll(List<BookDTO> books) {
+        return bookRepository.updateAll(books.stream().map(BookDTO::toExistingBookEntity).toList()).stream().map(BookDTO::new).toList();
+    }
+
+    @Override
+    public String delete(String id) {
+        return bookRepository.delete(id);
+    }
+
+    @Override
+    public List<String> deleteAll(List<String> ids) {
+        return bookRepository.deleteAll(ids);
     }
 
 

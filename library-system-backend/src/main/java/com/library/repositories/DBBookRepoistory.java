@@ -8,6 +8,8 @@ import com.mongodb.TransactionOptions;
 import com.mongodb.WriteConcern;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoCollection;
+import com.mongodb.client.result.DeleteResult;
+import com.mongodb.client.result.UpdateResult;
 import jakarta.annotation.PostConstruct;
 import com.library.models.*;
 import org.springframework.stereotype.Repository;
@@ -46,56 +48,62 @@ public class DBBookRepoistory implements BookRepository {
 
 
     @Override
+    public List<BookEntity> findAll() {
+        return bookCollection.find().into(new ArrayList<>()).stream().map(BookEntity::new).toList();
+    }
+
+    @Override
+    public BookEntity findOne(String id) {
+        Bson filter = Filters.eq("_id", id);
+        return new BookEntity(bookCollection.find(filter).first());
+    }
+
+    @Override
     public BookEntity save(BookEntity book) {
         bookCollection.insertOne(book.getBookEntityDocument());
         return book;
     }
 
-//    @Override
-//    public List<BookEntity> saveAll(List<BookEntity> books) {
-//        return List.of();
-//    }
+    @Override
+    public List<BookEntity> saveAll(List<BookEntity> books) {
+        bookCollection.insertMany(books.stream().map(BookEntity::getBookEntityDocument).toList());
+        return books;
+    }
 
     @Override
-    public List<BookEntity> findAll() {
-        return bookCollection.find().into(new ArrayList<>()).stream().map(BookEntity::new).toList();
+    public BookEntity update(BookEntity book) {
+        Bson filter = Filters.eq("_id", book.getId());
+        UpdateResult result = bookCollection.replaceOne(filter, book.getBookEntityDocument());
+        return book;
+    }
+
+    @Override
+    public List<BookEntity> updateAll(List<BookEntity> books) {
+        for(BookEntity book: books)
+        {
+            this.update(book);
+        }
+        return books;
+    }
+
+    @Override
+    public String delete(String id) {
+        Bson filter = Filters.eq("_id", id);
+        DeleteResult result = bookCollection.deleteOne(filter);
+        System.out.println(result);
+        return id;
+    }
+
+    @Override
+    public List<String> deleteAll(List<String> ids) {
+        List<String> messages = new ArrayList<>();
+        for(String id: ids)
+        {
+            messages.add(this.delete(id));
+        }
+
+        return messages;
     }
 
 
-//    @Override
-//    public List<BookEntity> findAll(List<String> ids) {
-//        return List.of();
-//    }
-//
-    @Override
-    public BookEntity findOne(String id) {
-//        ObjectId objectId = new ObjectId(id);
-        Bson filter = Filters.eq("author", "habso");
-        return new BookEntity(bookCollection.find(filter).first());
-    }
-//
-//    @Override
-//    public long delete(String id) {
-//        return 0;
-//    }
-//
-//    @Override
-//    public long delete(List<String> ids) {
-//        return 0;
-//    }
-//
-//    @Override
-//    public long deleteAll() {
-//        return 0;
-//    }
-//
-//    @Override
-//    public BookEntity update(BookEntity book) {
-//        return null;
-//    }
-//
-//    @Override
-//    public long update(List<BookEntity> books) {
-//        return 0;
-//    }
 }

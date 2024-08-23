@@ -27,28 +27,66 @@ public class BookController {
     {
         this.bookService = bookService;
     }
+
     // GET
     @GetMapping("/")
-    public List<BookDTO> getBooks(
-            @RequestParam(required = false) String author
-    )
+    public List<BookDTO> getBooks()
     {
         return bookService.findAll();
     }
 
     @GetMapping("/{id}")
-    public ObjectId getBook(@PathVariable String id)
+    public BookDTO getBook(@PathVariable String id)
     {
-        return new ObjectId(id);
+        return bookService.find(id);
     }
 
 
-
+    // POST
 
     @PostMapping("/create")
     public BookDTO createBook(@RequestBody BookDTO book)
     {
         return bookService.post(book);
+    }
+
+    @PostMapping("/create/many")
+    public List<BookDTO> createBook(@RequestBody List<BookDTO> books)
+    {
+        return bookService.postAll(books);
+    }
+
+
+    // PUT
+
+
+    @PutMapping("/update")
+    public BookDTO updateBook(@RequestBody BookDTO book)
+    {
+        return bookService.update(book);
+    }
+
+
+    @PutMapping("/update/many")
+    public List<BookDTO> updateBooks(@RequestBody List<BookDTO> books)
+    {
+        return bookService.updateAll(books);
+    }
+
+
+    // DELETE
+
+    @DeleteMapping("/delete/{id}")
+    public String deleteBook(@PathVariable String id)
+    {
+        return bookService.delete(id);
+    }
+
+
+    @DeleteMapping("/delete/many")
+    public List<String> deleteBooks(@RequestBody List<String> ids)
+    {
+        return bookService.deleteAll(ids);
     }
 
 
