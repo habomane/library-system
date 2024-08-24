@@ -18,12 +18,13 @@ public class BookEntity {
     private String zipcode;
     private String description;
     private boolean available;
+    private String ownerUUID;
 
     public BookEntity() {
     }
 
     public BookEntity(String title, String author, BookGenre genre, String image, String zipcode,
-                      String description, boolean available) {
+                      String description, boolean available, String ownerUUID) {
         this.bookId = new ObjectId().toHexString();
         this.title = title;
         this.author = author;
@@ -32,10 +33,11 @@ public class BookEntity {
         this.zipcode = zipcode;
         this.description = description;
         this.available = available;
+        this.ownerUUID = ownerUUID;
     }
 
     public BookEntity(String bookId, String title, String author, BookGenre genre, String image, String zipcode,
-                      String description, boolean available) {
+                      String description, boolean available, String ownerUUID) {
 
         this.bookId = bookId;
         this.title = title;
@@ -45,6 +47,7 @@ public class BookEntity {
         this.zipcode = zipcode;
         this.description = description;
         this.available = available;
+        this.ownerUUID = ownerUUID;
     }
 
     public BookEntity(Document bookDocument) {
@@ -56,6 +59,7 @@ public class BookEntity {
         this.zipcode = bookDocument.getString("zipcode");
         this.description = bookDocument.getString("description");
         this.available = bookDocument.getBoolean("available");
+        this.ownerUUID = bookDocument.getString("ownerUUID");
 
     }
 
@@ -69,6 +73,7 @@ public class BookEntity {
             put("zipcode", zipcode);
             put("description", description);
             put("available", available);
+            put("ownerUUID", ownerUUID);
         }};
 
         Document newDoc = new Document();
@@ -80,6 +85,10 @@ public class BookEntity {
 
 
     public String getId() { return bookId;}
+
+    public String getOwnerUUID() { return ownerUUID; }
+
+    public void setOwnerUUID(String ownerUUID) { this.ownerUUID = ownerUUID; }
 
     public String getTitle()
     {

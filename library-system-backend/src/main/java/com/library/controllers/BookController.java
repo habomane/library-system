@@ -1,5 +1,6 @@
 package com.library.controllers;
 
+import com.library.dtos.BookRequestDTO;
 import com.library.models.BookEntity;
 import com.library.services.BookService;
 import com.library.dtos.BookDTO;
@@ -62,7 +63,7 @@ public class BookController {
     // POST
 
     @PostMapping("/create")
-    public ResponseEntity createBook(@RequestBody BookDTO book)
+    public ResponseEntity createBook(@RequestBody BookRequestDTO book)
     {
         try
         {
@@ -88,7 +89,7 @@ public class BookController {
     }
 
     @PostMapping("/create/many")
-    public ResponseEntity createBook(@RequestBody List<BookDTO> books)
+    public ResponseEntity createBook(@RequestBody List<BookRequestDTO> books)
     {
         try
         {

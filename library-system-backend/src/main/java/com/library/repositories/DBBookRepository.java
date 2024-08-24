@@ -9,23 +9,22 @@ import com.mongodb.WriteConcern;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.result.DeleteResult;
+import com.mongodb.client.result.InsertManyResult;
+import com.mongodb.client.result.InsertOneResult;
 import com.mongodb.client.result.UpdateResult;
 import jakarta.annotation.PostConstruct;
-import com.library.models.*;
 import org.springframework.stereotype.Repository;
 import com.mongodb.client.model.Filters;
-import org.bson.types.ObjectId;
 import org.bson.conversions.Bson;
 import org.bson.Document;
 
-import javax.print.Doc;
 import java.util.*;
 
 import static com.mongodb.client.model.Aggregates.group;
 import static com.mongodb.client.model.Filters.eq;
 import static com.mongodb.client.model.Filters.in;
 @Repository
-public class DBBookRepoistory implements BookRepository {
+public class DBBookRepository implements BookRepository {
 
     private static final TransactionOptions txnOptions = TransactionOptions.builder()
             .readPreference(ReadPreference.primary())
@@ -36,7 +35,7 @@ public class DBBookRepoistory implements BookRepository {
     private final MongoClient client;
     private MongoCollection<Document> bookCollection;
 
-    public DBBookRepoistory(MongoClient mongoClient) {
+    public DBBookRepository(MongoClient mongoClient) {
         this.client = mongoClient;
     }
 
@@ -59,14 +58,16 @@ public class DBBookRepoistory implements BookRepository {
 
     @Override
     public BookEntity save(BookEntity book) {
-        bookCollection.insertOne(book.getBookEntityDocument());
-        return book;
+        InsertOneResult response = bookCollection.insertOne(book.getBookEntityDocument());
+        if(response.wasAcknowledged()) { return book; }
+        return new BookEntity();
     }
 
     @Override
     public List<BookEntity> saveAll(List<BookEntity> books) {
-        bookCollection.insertMany(books.stream().map(BookEntity::getBookEntityDocument).toList());
-        return books;
+        InsertManyResult response = bookCollection.insertMany(books.stream().map(BookEntity::getBookEntityDocument).toList());
+        if(response.wasAcknowledged()) { return books; }
+        return new ArrayList<>();
     }
 
     @Override

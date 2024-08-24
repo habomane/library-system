@@ -1,6 +1,7 @@
 package com.library.services;
 
 import com.library.dtos.BookDTO;
+import com.library.dtos.BookRequestDTO;
 import com.library.models.BookEntity;
 
 import java.util.*;
@@ -11,9 +12,9 @@ public interface BookService {
 
     BookDTO find(String id);
 
-    BookDTO post(BookDTO book);
+    BookDTO post(BookRequestDTO book);
 
-    List<BookDTO> postAll(List<BookDTO> books);
+    List<BookDTO> postAll(List<BookRequestDTO> books);
 
     BookDTO update(BookDTO book);
 
