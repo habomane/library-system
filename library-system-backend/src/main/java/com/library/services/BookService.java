@@ -19,9 +19,9 @@ public interface BookService {
 
     List<BookDTO> updateAll(List<BookDTO> books);
 
-    String delete(String id);
+    Map<String, String> delete(String id);
 
-    List<String> deleteAll(List<String> ids);
+    List<Map<String, String>> deleteAll(List<String> ids);
 
 
 

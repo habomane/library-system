@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class BookServiceImpl implements BookService{
@@ -54,12 +55,12 @@ public class BookServiceImpl implements BookService{
     }
 
     @Override
-    public String delete(String id) {
+    public Map<String, String> delete(String id) {
         return bookRepository.delete(id);
     }
 
     @Override
-    public List<String> deleteAll(List<String> ids) {
+    public List<Map<String, String>> deleteAll(List<String> ids) {
         return bookRepository.deleteAll(ids);
     }
 

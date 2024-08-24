@@ -19,8 +19,7 @@ import org.bson.conversions.Bson;
 import org.bson.Document;
 
 import javax.print.Doc;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 import static com.mongodb.client.model.Aggregates.group;
 import static com.mongodb.client.model.Filters.eq;
@@ -87,16 +86,16 @@ public class DBBookRepoistory implements BookRepository {
     }
 
     @Override
-    public String delete(String id) {
+    public Map<String, String> delete(String id) {
         Bson filter = Filters.eq("_id", id);
         DeleteResult result = bookCollection.deleteOne(filter);
-        System.out.println(result);
-        return id;
+        return result.getDeletedCount() > 0 ? Collections.singletonMap("Message", String.format("ID %s was deleted.", id))
+                : Collections.singletonMap("Error", String.format("ID %s does not exist.", id));
     }
 
     @Override
-    public List<String> deleteAll(List<String> ids) {
-        List<String> messages = new ArrayList<>();
+    public List<Map<String, String>> deleteAll(List<String> ids) {
+        List<Map<String, String>> messages = new ArrayList<>();
         for(String id: ids)
         {
             messages.add(this.delete(id));

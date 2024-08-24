@@ -7,4 +7,5 @@ com/library/LibrarySystemAPI.class
 com/library/repositories/DBBookRepoistory.class
 com/library/controllers/BookController.class
 com/library/services/BookServiceImpl.class
+com/library/models/BookEntity$1.class
 com/library/models/BookEntity.class

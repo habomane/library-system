@@ -1,6 +1,6 @@
 package com.library.repositories;
 
-import java.util.List;
+import java.util.*;
 
 import com.library.models.BookEntity;
 import org.springframework.stereotype.Repository;
@@ -20,7 +20,7 @@ public interface BookRepository {
 
     List<BookEntity> updateAll(List<BookEntity> book);
 
-    String delete(String id);
+    Map<String, String> delete(String id);
 
-    List<String> deleteAll(List<String> ids);
+    List<Map<String, String>> deleteAll(List<String> ids);
 }

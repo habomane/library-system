@@ -38,5 +38,11 @@ public class BookDTO {
         return new BookEntity(bookId, title, author, genre, image, zipcode, description, available);
     }
 
+    public boolean validateRequiredFields()
+    {
+        return title == null || title.isEmpty() || author == null || author.isEmpty() ? false : true;
+    }
+
+
 }
 
