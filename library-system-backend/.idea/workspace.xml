@@ -7,13 +7,6 @@
     <list default="true" id="bd565107-a500-4837-8040-d3a27809464a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/library/controllers/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/controllers/BookController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/dtos/BookDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/dtos/BookDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/repositories/BookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/repositories/BookRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/repositories/DBBookRepoistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/repositories/DBBookRepoistory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/services/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/services/BookService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/services/BookServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/services/BookServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LibrarySystem-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/LibrarySystem-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/library/controllers/BookController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/library/controllers/BookController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

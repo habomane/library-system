@@ -137,8 +137,8 @@ public class BookController {
         }
         catch(Exception e)
         {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body(Collections.singletonMap("Error", "Something went wrong. " + e));
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body(Collections.singletonMap("Error", String.format("ID %s could not be found.", book.bookId)));
         }
 
     }
@@ -149,6 +149,7 @@ public class BookController {
     {
         try
         {
+            if(books.size() == 0) { throw new ValidationException();}
             List<BookDTO> returnedBooks = bookService.updateAll(books);
 
             if(returnedBooks.size() == 0) { throw new Exception();}
@@ -156,10 +157,15 @@ public class BookController {
             return ResponseEntity.status(HttpStatus.CREATED)
                     .body(returnedBooks);
         }
+        catch(ValidationException e)
+        {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body(Collections.singletonMap("Error", "Request body cannot be empty."));
+        }
         catch(Exception e)
         {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body(Collections.singletonMap("Error", "Something went wrong. " + e));
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body(Collections.singletonMap("Error", "No book IDs were found for the items provided."));
         }
     }
 
