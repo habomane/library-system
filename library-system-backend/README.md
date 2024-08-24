@@ -1,6 +1,6 @@
 # Community Library REST API
 
-This API allows users to make requests to create, retrieve, update, and delete books. This API also allows users to create, retrieve, update, and delete requests.
+This API allows users to make requests to create, retrieve, update, and delete books. 
 
 
 ##  Books
