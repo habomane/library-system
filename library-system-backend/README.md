@@ -1,6 +1,6 @@
 # Community Library REST API
 
-This API allows users to make requests to create, retrieve, update, and delete books. This API also allows users to create, retrieve, update, and delete requests.
+This API allows users to make requests to create, retrieve, update, and delete books. 
 
 
 ##  Books
@@ -115,7 +115,7 @@ The users will be returned the created entities with their subsequent book id va
 
 <b>{api}/book/update/</b>
 
-This endpoint allows users to update a book entity by supplying the request body with the following schema. If an entity id is matched, the entire body will be updated. A successful request will have a status of <strong>202</strong> and the modified entity will be returned within the response.
+This endpoint allows users to update a book entity by supplying the request body with the following schema. If an entity id is matched, the entire body will be updated. A successful request will have a status of <strong>201</strong> and the modified entity will be returned within the response.
 
 ```
 // EXAMPLE REQUEST
@@ -135,7 +135,7 @@ This endpoint allows users to update a book entity by supplying the request body
 
 <b>{api}/book/update/many</b>
 
-This endpoint allows users to update several book entities by supplying the request body with the following schema. If an entity id is matched, the entire body will be updated. A successful request will have a status of <strong>202</strong> and the modified entity will be returned within the response. If any ids do not match the entities supplied, those items will not be provided within the response.
+This endpoint allows users to update several book entities by supplying the request body with the following schema. If an entity id is matched, the entire body will be updated. A successful request will have a status of <strong>201</strong> and the modified entity will be returned within the response. If any ids do not match the entities supplied, those items will not be provided within the response.
 
 
 ```
