@@ -14,8 +14,8 @@ public class RequestDTO {
     public RequestDTO(RequestEntity request)
     {
         this.requestId = request.getRequestId();
-        this.receivingUUID = request.getreceivingUUID();
-        this.requestingUUID = request.getrequestingUUID();
+        this.receivingUUID = request.getReceivingUUID();
+        this.requestingUUID = request.getRequestingUUID();
         this.status = request.getStatus();
     }
 

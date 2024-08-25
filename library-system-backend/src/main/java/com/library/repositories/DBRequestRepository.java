@@ -57,13 +57,24 @@ public class DBRequestRepository implements RequestRepository {
 
         List<RequestEntity> entities = new ArrayList<>();
 
-        for(Map<String, String> filter: filters)
+        if(filters.size() == 1)
         {
-            String key = filter.keySet().iterator().next();
-            String value = filter.values().iterator().next();
-            System.out.println(String.format("Key: %s Value: %s", key, value));
-            Bson filterData = Filters.eq(key, value);
-            entities.addAll(requestCollection.find(filterData).into(new ArrayList<>()).stream().map(RequestEntity::new).toList());
+            String key = filters.get(0).keySet().iterator().next();
+            String value = filters.get(0).values().iterator().next();
+            Bson filterRequestData = Filters.eq(key, value);
+
+            entities.addAll(requestCollection.find(filterRequestData).into(new ArrayList<>()).stream().map(RequestEntity::new).toList());
+        }
+        if(filters.size() > 1)
+        {
+            String key = filters.get(0).keySet().iterator().next();
+            String value = filters.get(0).values().iterator().next();
+            String key1 = filters.get(1).keySet().iterator().next();
+            String value1 = filters.get(1).values().iterator().next();
+
+            Bson combinedFilter = Filters.and( Filters.eq(key, value), Filters.eq(key1, value1));
+
+            entities.addAll(requestCollection.find(combinedFilter).into(new ArrayList<>()).stream().map(RequestEntity::new).toList());
         }
 
         return entities;

@@ -44,8 +44,8 @@ public class RequestEntity {
     {
         Map<String, Object> requestEntity = new HashMap<>() {{
             put("_id", requestId);
-            put("requestingUUID", receivingUUID);
-            put("receivingUUID", requestingUUID);
+            put("requestingUUID",requestingUUID);
+            put("receivingUUID", receivingUUID);
             put("status", status);
         }};
 
@@ -59,13 +59,13 @@ public class RequestEntity {
 
     public String getRequestId() { return requestId; }
 
-    public String getrequestingUUID() { return requestingUUID; }
+    public String getRequestingUUID() { return requestingUUID; }
 
-    public void setrequestingUUID(String requestingUUID) { this.requestingUUID = requestingUUID; }
+    public void setRequestingUUID(String requestingUUID) { this.requestingUUID = requestingUUID; }
 
-    public String getreceivingUUID() { return receivingUUID; }
+    public String getReceivingUUID() { return receivingUUID; }
 
-    public void setreceivingUUID(String receivingUUID) { this.receivingUUID = receivingUUID; }
+    public void setReceivingUUID(String receivingUUID) { this.receivingUUID = receivingUUID; }
 
     public BookRequestStatus getStatus() { return status; }
 
