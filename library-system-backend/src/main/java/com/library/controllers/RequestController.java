@@ -1,45 +1,36 @@
 package com.library.controllers;
 
-import com.library.dtos.BookRequestDTO;
-import com.library.models.BookEntity;
-import com.library.services.BookService;
-import com.library.dtos.BookDTO;
+import com.library.dtos.*;
+import com.library.services.RequestService;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.ValidationException;
-import org.bson.types.ObjectId;
-import org.springframework.http.RequestEntity;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import java.util.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.*;
 
 @RestController
-@RequestMapping("/book")
-public class BookController {
+@RequestMapping("/request")
+public class RequestController {
 
-    private final static Logger LOGGER = LoggerFactory.getLogger(BookController.class);
-    private final BookService bookService;
+    private final static Logger LOGGER = LoggerFactory.getLogger(RequestController.class);
+    private final RequestService requestService;
 
-    public BookController(BookService bookService)
-    {
-        this.bookService = bookService;
-    }
+    public RequestController(RequestService requestService) { this.requestService = requestService; }
 
     // GET
+
     @GetMapping("/")
-    public ResponseEntity getBooks()
+    public ResponseEntity getRequests()
     {
         try
         {
+            List<RequestDTO> response = requestService.findAll();
             return ResponseEntity.status(HttpStatus.OK)
-                    .body(bookService.findAll());
+                    .body(response);
         }
         catch(Exception e)
         {
@@ -49,45 +40,50 @@ public class BookController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity getBook(@PathVariable String id)
+    public ResponseEntity getRequest(@PathVariable String id)
     {
         try
         {
-            BookDTO returnedBook = bookService.find(id);
+            if(id == null || id.isEmpty()) { throw new ValidationException();}
 
-            if(!returnedBook.validateRequiredFields()) { throw new EntityNotFoundException();}
+            RequestDTO response = requestService.find(id);
+            if(!response.validateFields()) { throw new EntityNotFoundException(); }
 
             return ResponseEntity.status(HttpStatus.OK)
-                    .body(returnedBook);
+                    .body(response);
+        }
+        catch(ValidationException v)
+        {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body(Collections.singletonMap("Error", "The request ID must be provided within the uri."));
         }
         catch(EntityNotFoundException e)
         {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
-                    .body(Collections.singletonMap("Error", String.format("ID %s not found.", id)));
+                    .body(Collections.singletonMap("Error", String.format("ID %s not found", id)));
         }
         catch(Exception e)
         {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body(Collections.singletonMap("Error", "Something went wrong. " + e.getMessage()));
         }
-
     }
 
 
     // POST
 
     @PostMapping("/create")
-    public ResponseEntity createBook(@RequestBody BookRequestDTO book)
+    public ResponseEntity createBook(@RequestBody RequestRequestDTO request)
     {
         try
         {
-            if(!book.validateRequiredFields()) { throw new ValidationException();}
-            BookDTO returnedBook = bookService.post(book);
+            if(!request.validateFields()) { throw new ValidationException();}
+            RequestDTO response = requestService.post(request);
 
-            if(!returnedBook.validateRequiredFields()) { throw new Exception();}
+            if(!response.validateFields()) { throw new Exception();}
 
             return ResponseEntity.status(HttpStatus.CREATED)
-                    .body(returnedBook);
+                    .body(response);
         }
         catch(ValidationException v)
         {
@@ -103,18 +99,18 @@ public class BookController {
     }
 
     @PostMapping("/create/many")
-    public ResponseEntity createBook(@RequestBody List<BookRequestDTO> books)
+    public ResponseEntity createBook(@RequestBody List<RequestRequestDTO> requests)
     {
         try
         {
-            if(books.size() == 0 || books == null) { throw new ValidationException();}
+            if(requests.size() == 0 || requests == null) { throw new ValidationException();}
 
-            List<BookDTO> returnedBooks = bookService.postAll(books);
+            List<RequestDTO> response = requestService.postAll(requests);
 
-            if(returnedBooks.size() == 0) { throw new Exception();}
+            if(response.size() == 0) { throw new Exception();}
 
             return ResponseEntity.status(HttpStatus.CREATED)
-                    .body(returnedBooks);
+                    .body(response);
         }
         catch(ValidationException v)
         {
@@ -133,17 +129,17 @@ public class BookController {
 
 
     @PutMapping("/update")
-    public ResponseEntity updateBook(@RequestBody BookDTO book)
+    public ResponseEntity updateBook(@RequestBody RequestDTO request)
     {
         try
         {
-            if(!book.validateRequiredFields()) { throw new ValidationException();}
-            BookDTO returnedBook = bookService.update(book);
+            if(!request.validateFields()) { throw new ValidationException();}
+            RequestDTO response = requestService.update(request);
 
-            if(returnedBook == null) { throw new EntityNotFoundException();}
+            if(!response.validateFields()) { throw new Exception();}
 
             return ResponseEntity.status(HttpStatus.CREATED)
-                    .body(returnedBook);
+                    .body(response);
         }
         catch(ValidationException v)
         {
@@ -153,7 +149,7 @@ public class BookController {
         catch(EntityNotFoundException e)
         {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
-                    .body(Collections.singletonMap("Error", String.format("ID %s could not be found.", book.bookId)));
+                    .body(Collections.singletonMap("Error", String.format("ID %s could not be found.", request.requestId)));
         }
         catch(Exception e)
         {
@@ -165,17 +161,17 @@ public class BookController {
 
 
     @PutMapping("/update/many")
-    public ResponseEntity updateBooks(@RequestBody List<BookDTO> books)
+    public ResponseEntity updateBooks(@RequestBody List<RequestDTO> requests)
     {
         try
         {
-            if(books.size() == 0) { throw new ValidationException();}
-            List<BookDTO> returnedBooks = bookService.updateAll(books);
+            if(requests.size() == 0) { throw new ValidationException();}
+            List<RequestDTO> response = requestService.updateAll(requests);
 
-            if(returnedBooks.size() == 0) { throw new EntityNotFoundException();}
+            if(response.size() == 0) { throw new EntityNotFoundException();}
 
             return ResponseEntity.status(HttpStatus.CREATED)
-                    .body(returnedBooks);
+                    .body(response);
         }
         catch(ValidationException e)
         {
@@ -205,12 +201,12 @@ public class BookController {
             if(id == null || id.isEmpty()) { throw new ValidationException(); }
 
             return ResponseEntity.status(HttpStatus.ACCEPTED)
-                    .body(bookService.delete(id));
+                    .body(requestService.delete(id));
         }
         catch(ValidationException e)
         {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                    .body(Collections.singletonMap("Error", "ID cannot be empty." ));
+                    .body(Collections.singletonMap("Error", String.format("ID %s cannot be empty." , id)));
         }
         catch(Exception e)
         {
@@ -229,7 +225,7 @@ public class BookController {
             if(ids.size() == 0) { throw new ValidationException(); }
 
             return ResponseEntity.status(HttpStatus.ACCEPTED)
-                    .body(bookService.deleteAll(ids));
+                    .body(requestService.deleteAll(ids));
         }
         catch(ValidationException e)
         {
@@ -242,11 +238,6 @@ public class BookController {
                     .body(Collections.singletonMap("Error", "Something went wrong. " + e.getMessage()));
         }
     }
-
-
-
-
-
 
 
 }

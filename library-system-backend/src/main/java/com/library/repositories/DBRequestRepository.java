@@ -14,6 +14,7 @@ import com.mongodb.client.result.InsertOneResult;
 import com.mongodb.client.result.UpdateResult;
 import com.mongodb.internal.bulk.InsertRequest;
 import jakarta.annotation.PostConstruct;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Repository;
 import com.mongodb.client.model.Filters;
@@ -22,6 +23,7 @@ import org.bson.Document;
 
 import java.util.*;
 
+@Repository
 public class DBRequestRepository implements RequestRepository {
 
     private static final TransactionOptions txnOptions = TransactionOptions.builder()
@@ -50,7 +52,7 @@ public class DBRequestRepository implements RequestRepository {
 
     @Override
     public List<RequestEntity> findAll() {
-        return requestCollection.find().into(new ArrayList<>().stream().map(RequestEntity::new)).stream().toList();
+        return requestCollection.find().into(new ArrayList<>()).stream().map(RequestEntity::new).toList();
     }
 
     @Override
@@ -71,9 +73,9 @@ public class DBRequestRepository implements RequestRepository {
     public RequestEntity update(RequestEntity request) {
         Bson filter = Filters.eq("_id", request.getRequestId());
         UpdateResult response = requestCollection.replaceOne(filter, request.getRequestEntityDocument());
-        if(response.getMatchedCount() > 0) { return request; }
+        if(response.getMatchedCount() == 0) { throw new EntityNotFoundException(); }
 
-        return new RequestEntity();
+        return request;
     }
 
     @Override

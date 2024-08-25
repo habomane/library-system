@@ -2,6 +2,7 @@ package com.library.models;
 
 import com.library.types.BookRequestStatus;
 import org.bson.Document;
+import org.bson.types.ObjectId;
 
 import java.util.*;
 
@@ -16,6 +17,7 @@ public class RequestEntity {
 
     public RequestEntity(String requestingOwnerUUId, String recievingOwnerUUID, BookRequestStatus status)
     {
+        this.requestId = new ObjectId().toHexString();
         this.recievingOwnerUUID = recievingOwnerUUID;
         this.requestingOwnerUUID = requestingOwnerUUId;
         this.status = status;
@@ -38,7 +40,6 @@ public class RequestEntity {
 
     }
 
-
     public Document getRequestEntityDocument()
     {
         Map<String, Object> requestEntity = new HashMap<>() {{
@@ -50,8 +51,7 @@ public class RequestEntity {
 
         Document docRequestEntity = new Document();
 
-        docRequestEntity.putAll(docRequestEntity);
-
+        docRequestEntity.putAll(requestEntity);
         return docRequestEntity;
 
     }
