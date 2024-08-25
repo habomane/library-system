@@ -210,7 +210,8 @@ BookRequestStatus = {
     CANCELED,
     APPROVED,
     REJECTED,
-    NO_REQUEST
+    NO_REQUEST,
+    RESOLVED
 }
 ```
 
@@ -218,21 +219,22 @@ BookRequestStatus = {
 
 <b>{api}/request</b>
 
-This endpoint allows users to retrieve all the existing requests for books. A successful request will have a status of <strong>200.</strong>
+This endpoint allows users to retrieve all the existing requests for books. Users can query for either the receiver and/or the requester by providing the values within the uri. A successful request will return a HTTP status of <strong>200.</strong>
+
 
 ```
 // EXAMPLE RESPONSE
 [
     {
         "requestId": "66cb2ec46fab8a2ccc770aa3",
-        "requestingOwnerUUID": "Example Requester",
-        "recievingOwnerUUID": "Example Reciever",
+        "requestingUUID": "Example Requester",
+        "receivingUUID": "Example Reciever",
         "status": "APPROVED"
     },
     {
         "requestId": "66cb2eff6fab8a2ccc770aa4",
-        "requestingOwnerUUID": "Example Requester 1",
-        "recievingOwnerUUID": "Example Reciever 1",
+        "requestingUUID": "Example Requester 1",
+        "receivingUUID": "Example Reciever 1",
         "status": "PENDING"
     }
 ]
@@ -248,8 +250,8 @@ This endpoint allows users to retrieve the request associated with the ID provid
 
 {
  "requestId": "66cb2eff6fab8a2ccc770aa4",
- "requestingOwnerUUID": "Example Requester 1",
- "recievingOwnerUUID": "Example Reciever 1",
+ "requestingUUID": "Example Requester 1",
+ "receivingUUID": "Example Reciever 1",
  "status": "PENDING"
 }
 
@@ -266,8 +268,8 @@ This endpoint allows users to create a new request. The body of the requests fol
 // REQUEST BODY
 
 {
- "requestingOwnerUUID": "",
- "recievingOwnerUUID": "",
+ "requestingUUID": "",
+ "receivingUUID": "",
  "status": ""
 }
 ```
@@ -279,8 +281,8 @@ This endpoint will return the newly created request with the subsequent ID value
 
 {
  "requestId": "66cb2eff6fab8a2ccc770aa4",
- "requestingOwnerUUID": "Example Requester 1",
- "recievingOwnerUUID": "Example Reciever 1",
+ "requestingUUID": "Example Requester 1",
+ "receivingUUID": "Example Reciever 1",
  "status": "PENDING"
 }
 ```
@@ -293,8 +295,8 @@ This endpoint allows users to create several request entities at once. The body 
 // EXAMPLE REQUEST
 [
 {
- "requestingOwnerUUID": "",
- "recievingOwnerUUID": "",
+ "requestingUUID": "",
+ "receivingUUID": "",
  "status": ""
 }, 
 {..}
@@ -313,8 +315,8 @@ This endpoint allows users to update a request entity by supplying the request b
 
 {
  "requestId": "",
- "requestingOwnerUUID": "",
- "recievingOwnerUUID": "",
+ "requestingUUID": "",
+ "receivingUUID": "",
  "status": ""
 }
 
@@ -332,8 +334,8 @@ This endpoint allows users to update several request entities by supplying the r
 [
 {
  "requestId": "",
- "requestingOwnerUUID": "",
- "recievingOwnerUUID": "",
+ "requestingUUID": "",
+ "receivingUUID": "",
  "status": ""
 },
 {..}

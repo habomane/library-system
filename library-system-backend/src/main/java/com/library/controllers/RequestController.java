@@ -24,11 +24,16 @@ public class RequestController {
     // GET
 
     @GetMapping("/")
-    public ResponseEntity getRequests()
+    public ResponseEntity getRequests(@RequestParam(name="requester", required = false) String requesterUUID, @RequestParam(name="receiver", required = false) String receiverUUID)
     {
         try
         {
-            List<RequestDTO> response = requestService.findAll();
+            List<Map<String, String>> filters = new ArrayList<>();
+            if(requesterUUID != null && !requesterUUID.isEmpty()) { filters.add(Collections.singletonMap("requestingUUID", requesterUUID)); }
+            if(receiverUUID != null && !receiverUUID.isEmpty()) { filters.add(Collections.singletonMap("receivingUUID", receiverUUID)); }
+
+            List<RequestDTO> response = requestService.findAll(filters);
+
             return ResponseEntity.status(HttpStatus.OK)
                     .body(response);
         }

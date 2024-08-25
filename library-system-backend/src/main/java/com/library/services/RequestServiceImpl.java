@@ -24,8 +24,8 @@ public class RequestServiceImpl implements RequestService{
     }
 
     @Override
-    public List<RequestDTO> findAll() {
-        return requestRepository.findAll().stream().map(RequestDTO::new).toList();
+    public List<RequestDTO> findAll(List<Map<String, String>> filters) {
+        return requestRepository.findAll(filters).stream().map(RequestDTO::new).toList();
     }
 
     @Override

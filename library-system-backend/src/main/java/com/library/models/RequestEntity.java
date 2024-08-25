@@ -9,33 +9,33 @@ import java.util.*;
 public class RequestEntity {
 
     private String requestId;
-    private String requestingOwnerUUID;
-    private String recievingOwnerUUID;
+    private String requestingUUID;
+    private String receivingUUID;
     private BookRequestStatus status;
 
     public RequestEntity(){}
 
-    public RequestEntity(String requestingOwnerUUId, String recievingOwnerUUID, BookRequestStatus status)
+    public RequestEntity(String requestingUUID, String receivingUUID, BookRequestStatus status)
     {
         this.requestId = new ObjectId().toHexString();
-        this.recievingOwnerUUID = recievingOwnerUUID;
-        this.requestingOwnerUUID = requestingOwnerUUId;
+        this.receivingUUID = receivingUUID;
+        this.requestingUUID = requestingUUID;
         this.status = status;
     }
 
-    public RequestEntity(String requestId, String requestingOwnerUUId, String recievingOwnerUUID, BookRequestStatus status)
+    public RequestEntity(String requestId, String requestingUUID, String receivingUUID, BookRequestStatus status)
     {
         this.requestId = requestId;
-        this.recievingOwnerUUID = recievingOwnerUUID;
-        this.requestingOwnerUUID = requestingOwnerUUId;
+        this.receivingUUID = receivingUUID;
+        this.requestingUUID = requestingUUID;
         this.status = status;
     }
 
     public RequestEntity(Document request)
     {
         requestId = request.getString("_id");
-        recievingOwnerUUID = request.getString("recievingOwnerUUID");
-        requestingOwnerUUID = request.getString("requestingOwnerUUID");
+        receivingUUID = request.getString("receivingUUID");
+        requestingUUID = request.getString("requestingUUID");
         status = BookRequestStatus.valueOf(request.getString("status"));
 
     }
@@ -44,8 +44,8 @@ public class RequestEntity {
     {
         Map<String, Object> requestEntity = new HashMap<>() {{
             put("_id", requestId);
-            put("requestingOwnerUUID", recievingOwnerUUID);
-            put("recievingOwnerUUID", requestingOwnerUUID);
+            put("requestingUUID", receivingUUID);
+            put("receivingUUID", requestingUUID);
             put("status", status);
         }};
 
@@ -59,13 +59,13 @@ public class RequestEntity {
 
     public String getRequestId() { return requestId; }
 
-    public String getRequestingOwnerUUID() { return requestingOwnerUUID; }
+    public String getrequestingUUID() { return requestingUUID; }
 
-    public void setRequestingOwnerUUID(String requestingOwnerUUID) { this.requestingOwnerUUID = requestingOwnerUUID; }
+    public void setrequestingUUID(String requestingUUID) { this.requestingUUID = requestingUUID; }
 
-    public String getRecievingOwnerUUID() { return recievingOwnerUUID; }
+    public String getreceivingUUID() { return receivingUUID; }
 
-    public void setRecievingOwnerUUID(String recievingOwnerUUID) { this.recievingOwnerUUID = recievingOwnerUUID; }
+    public void setreceivingUUID(String receivingUUID) { this.receivingUUID = receivingUUID; }
 
     public BookRequestStatus getStatus() { return status; }
 

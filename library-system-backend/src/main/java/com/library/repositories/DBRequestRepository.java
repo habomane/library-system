@@ -51,8 +51,23 @@ public class DBRequestRepository implements RequestRepository {
     }
 
     @Override
-    public List<RequestEntity> findAll() {
-        return requestCollection.find().into(new ArrayList<>()).stream().map(RequestEntity::new).toList();
+    public List<RequestEntity> findAll(List<Map<String, String>> filters) {
+
+        if(filters.size() == 0) { return requestCollection.find().into(new ArrayList<>()).stream().map(RequestEntity::new).toList(); }
+
+        List<RequestEntity> entities = new ArrayList<>();
+
+        for(Map<String, String> filter: filters)
+        {
+            String key = filter.keySet().iterator().next();
+            String value = filter.values().iterator().next();
+            System.out.println(String.format("Key: %s Value: %s", key, value));
+            Bson filterData = Filters.eq(key, value);
+            entities.addAll(requestCollection.find(filterData).into(new ArrayList<>()).stream().map(RequestEntity::new).toList());
+        }
+
+        return entities;
+
     }
 
     @Override

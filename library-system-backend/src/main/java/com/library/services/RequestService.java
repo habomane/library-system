@@ -7,7 +7,7 @@ public interface RequestService {
 
     RequestDTO find(String id);
 
-    List<RequestDTO> findAll();
+    List<RequestDTO> findAll(List<Map<String, String>> filters);
 
     RequestDTO post(RequestRequestDTO request);
 

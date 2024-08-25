@@ -11,7 +11,7 @@ public interface RequestRepository {
 
     RequestEntity find(String id);
 
-    List<RequestEntity> findAll();
+    List<RequestEntity> findAll(List<Map<String, String>> filters);
 
     RequestEntity save(RequestEntity request);
 
