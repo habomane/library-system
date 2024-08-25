@@ -54,3 +54,11 @@ body {
   transform: rotate(-45deg) translateY(6px) translateX(-6px);
 }
 
+
+.home-bg {
+  background-image: linear-gradient(to right, #15803c99, #15803c99), url("../src/assets/png/tree.png");
+  background-size: cover;
+  background-position: bottom;
+  height: 85vh;
+  width: 100vw;
+}

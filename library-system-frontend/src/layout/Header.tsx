@@ -27,7 +27,7 @@ function Header() {
         ? "absolute fixed p-6 bg-gray-50 flex flex-col py-20 items-center gap-y-5 w-[100vw] h-[100vh] top-0 left-0 z-100 transition-all lg:hidden"
         : "hidden";
     const regularNavDisplay = 
-    navOpenDisplay === true ? "hidden": "hidden lg:flex flex flex-row justify-between w-[25%]";
+    navOpenDisplay === true ? "hidden": "hidden lg:flex flex flex-row justify-between w-[35%]";
     const toggleDisplay = () => toggleNavOpenDisplay(!navOpenDisplay);
 
     return (
@@ -44,6 +44,7 @@ function Header() {
 
 
         <div className={regularNavDisplay}>
+        <Link to="/library"><p className="cursor font-medium hover:underline hover:underline-offset-8 active:text-green-700">Book Requests</p></Link>
             <Link to="/library"><p className="cursor font-medium hover:underline hover:underline-offset-8 active:text-green-700">My Library</p></Link>
             <Link to="/discover"><p className="cursor font-medium hover:underline hover:underline-offset-8 active:text-green-700">Discover</p></Link>
             <Link to={user.id === 0 ? "/signup" : "/account/:" + user.id}><p className="cursor font-medium hover:underline hover:underline-offset-8 active:text-green-700">{user.id === 0 ? "Sign Up" : "Account"}</p></Link>

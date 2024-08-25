@@ -13,6 +13,7 @@ import BookDetailsPage from "./pages/BookDetails";
 import AccountDetailsPage from "./pages/AccountDetailsPage";
 import ErrorBoundary from "./pages/ErrorPage";
 import SignUpPage from "./pages/SignupPage";
+import LoginPage from "./pages/LoginPage";
 
 export const UserContext = createContext<[User, React.Dispatch<React.SetStateAction<User>>] | null>(null);
 
@@ -28,6 +29,7 @@ const routes = createBrowserRouter([
       { path: "/details/:id", element: <BookDetailsPage /> },
       { path: "/account/:id", element: <AccountDetailsPage /> },
       { path: "/signup", element: <SignUpPage /> },
+      { path: "/login", element: <LoginPage /> }
     ],
     errorElement: <ErrorBoundary />,
   },
