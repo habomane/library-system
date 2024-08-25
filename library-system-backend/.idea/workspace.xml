@@ -5,17 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd565107-a500-4837-8040-d3a27809464a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/library/controllers/RequestController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/library/services/RequestService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/library/services/RequestServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/controllers/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/controllers/BookController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/models/RequestEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/models/RequestEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/library/repositories/DBRequestRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/repositories/DBRequestRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/services/BookServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/services/BookServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/library/controllers/BookController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/library/controllers/BookController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/library/repositories/DBBookRepoistory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/library/services/BookServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/library/services/BookServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/types/BookRequestStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/types/BookRequestStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/library/models/RequestEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/library/models/RequestEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/library/services/RequestServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/library/services/RequestServiceImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

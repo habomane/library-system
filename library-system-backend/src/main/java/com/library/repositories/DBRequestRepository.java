@@ -59,7 +59,7 @@ public class DBRequestRepository implements RequestRepository {
     public RequestEntity save(RequestEntity request) {
         InsertOneResult response = requestCollection.insertOne(request.getRequestEntityDocument());
         if(response.wasAcknowledged()) { return request; }
-        return new RequestEntity();
+        return null;
     }
 
     @Override
