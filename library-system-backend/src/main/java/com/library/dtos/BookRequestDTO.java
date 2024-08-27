@@ -23,7 +23,7 @@ public class BookRequestDTO {
 
     public boolean validateRequiredFields()
     {
-        return title == null || title.isEmpty() || author == null || author.isEmpty()
+        return title == null || title.isEmpty() && author == null || author.isEmpty()
                 || ownerUUID == null || ownerUUID.isEmpty() ? false : true;
     }
 

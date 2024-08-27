@@ -13,7 +13,7 @@ function HomePage()
             </section>
 
             <section className="flex justify-center items-center">
-                <p className="font-semibold text-lg px-20 py-20 text-center">
+                <p className="text-lg px-20 py-20 text-center">
                 Our mission is to ignite a passion for reading and writing by sharing books and knowledge with the community. We believe in the transformative power of stories and ideas, and we are dedicated to creating a space where individuals can discover new perspectives, exchange insights, and inspire one another to embark on their own creative journeys. Through our efforts, we aim to cultivate a lifelong love of literature and empower others to share their voices with the world.
                 </p>
             </section>

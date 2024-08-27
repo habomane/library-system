@@ -20,9 +20,6 @@ import org.bson.Document;
 
 import java.util.*;
 
-import static com.mongodb.client.model.Aggregates.group;
-import static com.mongodb.client.model.Filters.eq;
-import static com.mongodb.client.model.Filters.in;
 @Repository
 public class DBBookRepository implements BookRepository {
 
