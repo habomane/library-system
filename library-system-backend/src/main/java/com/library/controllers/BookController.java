@@ -1,16 +1,12 @@
 package com.library.controllers;
 
 import com.library.dtos.BookRequestDTO;
-import com.library.models.BookEntity;
 import com.library.services.BookService;
 import com.library.dtos.BookDTO;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.ValidationException;
-import org.bson.types.ObjectId;
-import org.springframework.http.RequestEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -55,7 +51,7 @@ public class BookController {
         {
             BookDTO returnedBook = bookService.find(id);
 
-            if(!returnedBook.validateRequiredFields()) { throw new EntityNotFoundException();}
+            if(!returnedBook.isValid()) { throw new EntityNotFoundException();}
 
             return ResponseEntity.status(HttpStatus.OK)
                     .body(returnedBook);
@@ -81,10 +77,10 @@ public class BookController {
     {
         try
         {
-            if(!book.validateRequiredFields()) { throw new ValidationException();}
+            if(!book.isValid()) { throw new ValidationException();}
             BookDTO returnedBook = bookService.post(book);
 
-            if(!returnedBook.validateRequiredFields()) { throw new Exception();}
+            if(!returnedBook.isValid()) { throw new Exception();}
 
             return ResponseEntity.status(HttpStatus.CREATED)
                     .body(returnedBook);
@@ -137,7 +133,7 @@ public class BookController {
     {
         try
         {
-            if(!book.validateRequiredFields()) { throw new ValidationException();}
+            if(!book.isValid()) { throw new ValidationException();}
             BookDTO returnedBook = bookService.update(book);
 
             if(returnedBook == null) { throw new EntityNotFoundException();}

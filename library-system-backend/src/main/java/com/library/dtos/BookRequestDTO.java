@@ -23,7 +23,7 @@ public class BookRequestDTO {
         return new BookEntity(title, author, genre, image, zipcode, description, available, ownerUUID);
     }
 
-    public boolean validateRequiredFields()
+    public boolean isValid()
     {
         return title == null || title.isEmpty() && author == null || author.isEmpty()
                 || ownerUUID == null ? false : true;

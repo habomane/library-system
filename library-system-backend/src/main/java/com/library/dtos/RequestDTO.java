@@ -24,7 +24,7 @@ public class RequestDTO {
         return new RequestEntity(requestId, requestingUUID, receivingUUID, status);
     }
 
-    public boolean validateFields()
+    public boolean isValid()
     {
         return requestingUUID == null || requestingUUID.isEmpty() || receivingUUID == null
                 || receivingUUID.isEmpty() || status == null ? false : true;

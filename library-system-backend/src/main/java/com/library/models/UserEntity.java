@@ -8,13 +8,13 @@ import org.bson.types.ObjectId;
 public class UserEntity {
 
     private String id;
-    private UUID userId;
+    private String userId;
     private String privateKey;
-    private LocalDateTime dateCreation;
+    private String dateCreation;
 
     public UserEntity() {}
 
-    public UserEntity(String id, UUID userId, String privateKey, LocalDateTime dateCreation)
+    public UserEntity(String id, String userId, String privateKey, String dateCreation)
     {
         this.id = id;
         this.userId = userId;
@@ -26,16 +26,16 @@ public class UserEntity {
     {
         id = new ObjectId().toHexString();
         this.privateKey = privateKey;
-        userId = UUID.randomUUID();
-        dateCreation = LocalDateTime.now();
+        userId = UUID.randomUUID().toString();
+        dateCreation = LocalDateTime.now().toString();
     }
 
     public UserEntity(Document doc)
     {
         id = doc.getString("_id");
         privateKey = doc.getString("privateKey");
-        userId = UUID.fromString(doc.getString("userId"));
-        dateCreation = LocalDateTime.parse(doc.getString("dateCreation"));
+        userId = doc.getString("userId");
+        dateCreation = doc.getString("dateCreation");
 
     }
 
@@ -53,17 +53,19 @@ public class UserEntity {
         return doc;
     }
 
-    public UUID getUserId() { return userId; }
+    public String getId() { return id; }
 
-    public void setUserId(UUID userId) { this.userId = userId; }
+    public String getUserId() { return userId; }
+
+    public void setUserId(UUID userId) { this.userId = userId.toString(); }
 
     public String getPrivateKey() { return privateKey; }
 
     public void setPrivateKey(String privateKey) { this.privateKey = privateKey; }
 
-    public LocalDateTime getDateCreation() { return dateCreation; }
+    public String getDateCreation() { return dateCreation; }
 
-    public void setDateCreation(LocalDateTime dateCreation) { this.dateCreation = dateCreation; }
+    public void setDateCreation(String dateCreation) { this.dateCreation = dateCreation; }
 
 
 }

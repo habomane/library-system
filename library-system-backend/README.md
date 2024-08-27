@@ -3,6 +3,79 @@
 This API allows users to make requests to create, retrieve, update, and delete books. 
 
 
+## Users
+
+### GET
+
+<b>{api}/user</b>
+
+This endpoint allows users to retrieve all the existing user entities. A successful request will return a HTTP status of <strong>200.</strong>
+
+
+```
+// EXAMPLE RESPONSE
+[
+
+{
+"userId": "097faf2a-efde-4929-b22a-c6f1efc2e680",
+"privateKey": "81dd200c8e404e3e4a006b6f2d09872a15da6defc6297c548733b0c339c8d953",
+"dateCreation": "2024-08-27T19:38:05.999615"
+},
+{..}
+
+]
+
+```
+
+<b>{api}/user/{id}</b>
+
+This endpoint allows users to retrieve the book favorite relation associated with the ID provided within the path parameter. A successful request will have a status of <strong>200.</strong>
+
+```
+// EXAMPLE RESPONSE 
+
+{
+"userId": "097faf2a-efde-4929-b22a-c6f1efc2e680",
+"privateKey": "81dd200c8e404e3e4a006b6f2d09872a15da6defc6297c548733b0c339c8d953",
+"dateCreation": "2024-08-27T19:38:05.999615"
+}
+
+```
+
+### POST
+
+<b>{api}/user/create</b>
+
+This endpoint allows users to create a new user entity. The body of the requests follows the below schema:
+
+
+```
+// REQUEST BODY
+
+{
+ "privateKey": ""
+}
+```
+
+This endpoint will return the newly created entity with the subsequent ID value. The ID value will be a hex string and can be supplied within the GET request endpoint. A successful request will have a status of <strong>201.</strong>
+
+```
+// RESPONSE
+
+{
+"userId": "097faf2a-efde-4929-b22a-c6f1efc2e680",
+"privateKey": "81dd200c8e404e3e4a006b6f2d09872a15da6defc6297c548733b0c339c8d953",
+"dateCreation": "2024-08-27T19:38:05.999615"
+}
+```
+
+### DELETE 
+
+<b>{api}/user/delete/{url}</b>
+
+This endpoint allows users to delete a user. The favorite id will need to be supplied as a path parameter. If an entity id is matched, the entity will be deleted. A successful request will have a status of <strong>202</strong>.
+
+
 ##  Books
 
 ### Book Genre
@@ -138,6 +211,8 @@ This endpoint allows users to create several book entities at once. The body of 
 
 The users will be returned the created entities with their subsequent book id values. A successful request will have a status of <strong>201.</strong>
 
+### PUT
+
 <b>{api}/book/update/</b>
 
 This endpoint allows users to update a book entity by supplying the request body with the following schema. If an entity id is matched, the entire body will be updated. A successful request will have a status of <strong>201</strong> and the modified entity will be returned within the response.
@@ -181,6 +256,8 @@ This endpoint allows users to update several book entities by supplying the requ
 
 ```
 
+
+### DELETE
 
 <b>{api}/book/delete/{url}</b>
 
@@ -306,6 +383,8 @@ This endpoint allows users to create several request entities at once. The body 
 
 The users will be returned the created entities with their subsequent request id values. A successful request will have a status of <strong>201.</strong>
 
+### PUT 
+
 <b>{api}/request/update/</b>
 
 This endpoint allows users to update a request entity by supplying the request body with the following schema. If an entity id is matched, the entire body will be updated. A successful request will have a status of <strong>201</strong> and the modified entity will be returned within the response.
@@ -343,6 +422,8 @@ This endpoint allows users to update several request entities by supplying the r
 
 ```
 
+
+### DELETE 
 
 <b>{api}/request/delete/{url}</b>
 
@@ -427,6 +508,7 @@ This endpoint will return the newly created request with the subsequent ID value
 }
 ```
 
+### DELETE 
 
 <b>{api}/request/delete/{url}</b>
 

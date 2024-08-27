@@ -52,7 +52,7 @@ public class RequestController {
             if(id == null || id.isEmpty()) { throw new ValidationException();}
 
             RequestDTO response = requestService.find(id);
-            if(!response.validateFields()) { throw new EntityNotFoundException(); }
+            if(!response.isValid()) { throw new EntityNotFoundException(); }
 
             return ResponseEntity.status(HttpStatus.OK)
                     .body(response);
@@ -82,10 +82,10 @@ public class RequestController {
     {
         try
         {
-            if(!request.validateFields()) { throw new ValidationException();}
+            if(!request.isValid()) { throw new ValidationException();}
             RequestDTO response = requestService.post(request);
 
-            if(!response.validateFields()) { throw new Exception();}
+            if(!response.isValid()) { throw new Exception();}
 
             return ResponseEntity.status(HttpStatus.CREATED)
                     .body(response);
@@ -138,10 +138,10 @@ public class RequestController {
     {
         try
         {
-            if(!request.validateFields()) { throw new ValidationException();}
+            if(!request.isValid()) { throw new ValidationException();}
             RequestDTO response = requestService.update(request);
 
-            if(!response.validateFields()) { throw new Exception();}
+            if(!response.isValid()) { throw new Exception();}
 
             return ResponseEntity.status(HttpStatus.CREATED)
                     .body(response);

@@ -2,7 +2,6 @@ package com.library.dtos;
 
 import com.library.models.BookEntity;
 import com.library.types.BookGenre;
-import org.bson.types.ObjectId;
 
 import java.util.UUID;
 
@@ -38,7 +37,7 @@ public class BookDTO {
         return new BookEntity(bookId, title, author, genre, image, zipcode, description, available, ownerUUID);
     }
 
-    public boolean validateRequiredFields()
+    public boolean isValid()
     {
         return title == null || title.isEmpty() || author == null || author.isEmpty()
                 || ownerUUID == null ? false : true;
