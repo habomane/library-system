@@ -189,7 +189,7 @@ This endpoint allows users to delete a book entity. The book id will need to be 
 
 <b>{api}/book/delete/many</b>
 
-This endpoint allows users to delete several book entities at once. The book id will not be supplied as a path parameter. Instead, the id values should be provided within the request parameter within an array. Only entities that match existing items will be deleted. A successful request will have a status of <strong>202</strong>.
+This endpoint allows users to delete several book entities at once. The book id will not be supplied as a path parameter. Instead, the id values should be provided within the request body within an array. Only entities that match existing items will be deleted. A successful request will have a status of <strong>202</strong>.
 
 ```
 // REQUEST EXAMPLE
@@ -351,7 +351,7 @@ This endpoint allows users to delete a request entity. The request id will need 
 
 <b>{api}/request/delete/many</b>
 
-This endpoint allows users to delete several request entities at once. The request id will not be supplied as a path parameter. Instead, the id values should be provided within the request parameter within an array. Only entities that match existing items will be deleted. A successful request will have a status of <strong>202</strong>.
+This endpoint allows users to delete several request entities at once. The request id will not be supplied as a path parameter. Instead, the id values should be provided within the request body within an array. Only entities that match existing items will be deleted. A successful request will have a status of <strong>202</strong>.
 
 ```
 // REQUEST EXAMPLE
@@ -360,3 +360,86 @@ This endpoint allows users to delete several request entities at once. The reque
 
 ```
 
+## Book Favorites
+
+### GET
+
+<b>{api}/favorite</b>
+
+This endpoint allows users to retrieve all the existing favorite relations. Users can query for either the user by supplying the uuid associated with the user  ```/?UUID= ```. A successful request will return a HTTP status of <strong>200.</strong>
+
+
+```
+// EXAMPLE RESPONSE
+[
+
+{
+"bookFavoriteId": "66cb2ec46fab8a2ccc770aa3",
+"uuid": "0293-4839-2836-3435",
+"bookId": "1"
+},
+{..}
+
+]
+
+```
+
+<b>{api}/favorite/{id}</b>
+
+This endpoint allows users to retrieve the book favorite relation associated with the ID provided within the path parameter. A successful request will have a status of <strong>200.</strong>
+
+```
+// EXAMPLE RESPONSE 
+
+{
+"bookFavoriteId": "66cb2ec46fab8a2ccc770aa3",
+"uuid": "0293-4839-2836-3435",
+"bookId": "1"
+}
+
+```
+
+### POST
+
+<b>{api}/favorite/create</b>
+
+This endpoint allows users to create a new favorite book relation. The body of the requests follows the below schema:
+
+
+```
+// REQUEST BODY
+
+{
+ "uuid": "",
+ "bookId": ""
+}
+```
+
+This endpoint will return the newly created request with the subsequent ID value. The ID value will be a hex string and can be supplied within the GET request endpoint. A successful request will have a status of <strong>201.</strong>
+
+```
+// RESPONSE
+
+{
+"bookFavoriteId": "66cb2ec46fab8a2ccc770aa3",
+"uuid": "0293-4839-2836-3435",
+"bookId": "1"
+}
+```
+
+
+<b>{api}/request/delete/{url}</b>
+
+This endpoint allows users to delete a book favorite relation entity. The favorite id will need to be supplied as a path parameter. If an entity id is matched, the entity will be deleted. A successful request will have a status of <strong>202</strong>.
+
+
+<b>{api}/request/delete/many</b>
+
+This endpoint allows users to delete several book favorite relation entities at once. The request id will not be supplied as a path parameter. Instead, the id values should be provided within the request body within an array. Only entities that match existing items will be deleted. A successful request will have a status of <strong>202</strong>.
+
+```
+// REQUEST EXAMPLE
+
+["66c8b591b54f4e47f8f41f4e", "66c8cfb2ce9c2831646f5ae0"]
+
+```

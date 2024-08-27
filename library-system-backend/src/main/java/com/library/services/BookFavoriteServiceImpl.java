@@ -18,26 +18,26 @@ public class BookFavoriteServiceImpl implements BookFavoriteService{
     }
     @Override
     public BookFavoriteDTO find(String id) {
-        return null;
+        return new BookFavoriteDTO(bookFavoriteRepository.find(id));
     }
 
     @Override
-    public List<BookFavoriteDTO> findAll(List<Map<String, String>> filters) {
-        return List.of();
+    public List<BookFavoriteDTO> findAll(Map<String, String> filters) {
+        return bookFavoriteRepository.findAll(filters).stream().map(BookFavoriteDTO::new).toList();
     }
 
     @Override
     public BookFavoriteDTO post(BookFavoriteRequestDTO favorite) {
-        return null;
+        return new BookFavoriteDTO(bookFavoriteRepository.save(favorite.toBookFavoriteEntity()));
     }
 
     @Override
     public Map<String, String> delete(String id) {
-        return Map.of();
+        return bookFavoriteRepository.delete(id);
     }
 
     @Override
-    public List<Map<String, String>> deleteAll(String ids) {
-        return List.of();
+    public List<Map<String, String>> deleteAll(List<String> ids) {
+        return bookFavoriteRepository.deleteAll(ids);
     }
 }

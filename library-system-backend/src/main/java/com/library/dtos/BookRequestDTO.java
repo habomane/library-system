@@ -3,6 +3,8 @@ package com.library.dtos;
 import com.library.models.BookEntity;
 import com.library.types.BookGenre;
 
+import java.util.UUID;
+
 public class BookRequestDTO {
 
     public String title;
@@ -12,7 +14,7 @@ public class BookRequestDTO {
     public  String zipcode;
     public String description;
     public boolean available;
-    public String ownerUUID;
+    public UUID ownerUUID;
 
     public BookRequestDTO() {}
 
@@ -24,7 +26,7 @@ public class BookRequestDTO {
     public boolean validateRequiredFields()
     {
         return title == null || title.isEmpty() && author == null || author.isEmpty()
-                || ownerUUID == null || ownerUUID.isEmpty() ? false : true;
+                || ownerUUID == null ? false : true;
     }
 
 

@@ -1,5 +1,7 @@
 package com.library.controllers;
 
+import com.library.dtos.BookFavoriteDTO;
+import com.library.dtos.BookFavoriteRequestDTO;
 import com.library.dtos.RequestDTO;
 import com.library.dtos.RequestRequestDTO;
 import com.library.services.BookFavoriteService;
@@ -11,10 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @RestController
 @RequestMapping("/favorite")
@@ -35,11 +34,9 @@ public class BookFavoriteController {
     {
         try
         {
-            List<Map<String, String>> filters = new ArrayList<>();
-            if(requesterUUID != null && !requesterUUID.isEmpty()) { filters.add(Collections.singletonMap("requestingUUID", requesterUUID)); }
-            if(receiverUUID != null && !receiverUUID.isEmpty()) { filters.add(Collections.singletonMap("receivingUUID", receiverUUID)); }
-
-            List<RequestDTO> response = requestService.findAll(filters);
+            Map<String, String> filters = new HashMap<>();
+            if(uuid != null && !uuid.isEmpty()) { filters.put("uuid", uuid); }
+            List<BookFavoriteDTO> response = bookFavoriteService.findAll(filters);
 
             return ResponseEntity.status(HttpStatus.OK)
                     .body(response);
@@ -58,8 +55,8 @@ public class BookFavoriteController {
         {
             if(id == null || id.isEmpty()) { throw new ValidationException();}
 
-            RequestDTO response = requestService.find(id);
-            if(!response.validateFields()) { throw new EntityNotFoundException(); }
+            BookFavoriteDTO response = bookFavoriteService.find(id);
+            if(!response.isValid()) { throw new EntityNotFoundException(); }
 
             return ResponseEntity.status(HttpStatus.OK)
                     .body(response);
@@ -85,14 +82,14 @@ public class BookFavoriteController {
     // POST
 
     @PostMapping("/create")
-    public ResponseEntity createFavorite(@RequestBody RequestRequestDTO request)
+    public ResponseEntity createFavorite(@RequestBody BookFavoriteRequestDTO request)
     {
         try
         {
-            if(!request.validateFields()) { throw new ValidationException();}
-            RequestDTO response = requestService.post(request);
+            if(!request.isValid()) { throw new ValidationException();}
+            BookFavoriteDTO response = bookFavoriteService.post(request);
 
-            if(!response.validateFields()) { throw new Exception();}
+            if(!response.isValid()) { throw new Exception();}
 
             return ResponseEntity.status(HttpStatus.CREATED)
                     .body(response);
@@ -122,7 +119,7 @@ public class BookFavoriteController {
             if(id == null || id.isEmpty()) { throw new ValidationException(); }
 
             return ResponseEntity.status(HttpStatus.ACCEPTED)
-                    .body(requestService.delete(id));
+                    .body(bookFavoriteService.delete(id));
         }
         catch(ValidationException e)
         {
@@ -146,7 +143,7 @@ public class BookFavoriteController {
             if(ids.size() == 0) { throw new ValidationException(); }
 
             return ResponseEntity.status(HttpStatus.ACCEPTED)
-                    .body(requestService.deleteAll(ids));
+                    .body(bookFavoriteService.deleteAll(ids));
         }
         catch(ValidationException e)
         {

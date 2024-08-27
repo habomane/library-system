@@ -2,6 +2,8 @@ package com.library.dtos;
 
 import com.library.models.BookFavoriteEntity;
 
+import java.util.UUID;
+
 public class BookFavoriteRequestDTO {
 
     public String uuid;
@@ -11,7 +13,7 @@ public class BookFavoriteRequestDTO {
 
     public BookFavoriteRequestDTO(BookFavoriteEntity favorite)
     {
-        this.uuid = favorite.getUuid();
+        this.uuid = favorite.getUuid().toString();
         this.bookId = favorite.getBookId();
     }
 
@@ -22,7 +24,7 @@ public class BookFavoriteRequestDTO {
 
     public boolean isValid()
     {
-        return uuid == null && uuid.isEmpty() && bookId == null && bookId.isEmpty() ? false : true;
+        return uuid == null && bookId == null && bookId.isEmpty() ? false : true;
     }
 
 }

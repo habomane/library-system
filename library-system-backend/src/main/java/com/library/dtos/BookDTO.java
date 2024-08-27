@@ -4,6 +4,8 @@ import com.library.models.BookEntity;
 import com.library.types.BookGenre;
 import org.bson.types.ObjectId;
 
+import java.util.UUID;
+
 
 public class BookDTO {
 
@@ -15,7 +17,7 @@ public class BookDTO {
     public  String zipcode;
     public String description;
     public boolean available;
-    public String ownerUUID;
+    public UUID ownerUUID;
 
     public BookDTO() {}
 
@@ -39,7 +41,7 @@ public class BookDTO {
     public boolean validateRequiredFields()
     {
         return title == null || title.isEmpty() || author == null || author.isEmpty()
-                || ownerUUID == null || ownerUUID.isEmpty() ? false : true;
+                || ownerUUID == null ? false : true;
     }
 
 
