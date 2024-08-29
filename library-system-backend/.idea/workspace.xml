@@ -5,27 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd565107-a500-4837-8040-d3a27809464a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/library/controllers/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/library/dtos/UserDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/library/dtos/UserRequestDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/library/repositories/DBUserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/library/repositories/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/library/services/UserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/controllers/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/controllers/BookController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/controllers/RequestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/controllers/RequestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/dtos/BookDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/dtos/BookDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/dtos/BookRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/dtos/BookRequestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/dtos/RequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/dtos/RequestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/dtos/RequestRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/dtos/RequestRequestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/models/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/models/UserEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/services/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/library/dtos/BookDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/library/dtos/BookDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/library/dtos/BookRequestDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/library/dtos/BookRequestDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/library/models/UserEntity$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/library/models/UserEntity$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/library/models/UserEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/library/models/UserEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/library/services/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/library/services/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/LibrarySystem-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/LibrarySystem-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
