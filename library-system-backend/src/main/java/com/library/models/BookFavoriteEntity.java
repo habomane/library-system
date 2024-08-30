@@ -29,6 +29,7 @@ public class BookFavoriteEntity {
 
     public BookFavoriteEntity(Document doc)
     {
+        if(doc == null  || doc.isEmpty()) { setFieldsEmpty(); return;}
         this.bookFavoriteId = doc.getString("_id");
         this.uuid = doc.getString("uuid");
         this.bookId = doc.getString("bookId");
@@ -46,6 +47,13 @@ public class BookFavoriteEntity {
 
         bookFavoriteDoc.putAll(bookFavoriteData);
         return bookFavoriteDoc;
+    }
+
+    private void setFieldsEmpty()
+    {
+        this.bookFavoriteId = "";
+        this.uuid = "";
+        this.bookId = "";
     }
 
     public String getBookFavoriteId() { return bookFavoriteId; }

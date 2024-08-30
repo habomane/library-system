@@ -18,13 +18,13 @@ public class BookEntity {
     private String zipcode;
     private String description;
     private boolean available;
-    private UUID ownerUUID;
+    private String ownerUUID;
 
     public BookEntity() {
     }
 
     public BookEntity(String title, String author, BookGenre genre, String image, String zipcode,
-                      String description, boolean available, UUID ownerUUID) {
+                      String description, boolean available, String ownerUUID) {
         this.bookId = new ObjectId().toHexString();
         this.title = title;
         this.author = author;
@@ -37,7 +37,7 @@ public class BookEntity {
     }
 
     public BookEntity(String bookId, String title, String author, BookGenre genre, String image, String zipcode,
-                      String description, boolean available, UUID ownerUUID) {
+                      String description, boolean available, String ownerUUID) {
 
         this.bookId = bookId;
         this.title = title;
@@ -51,6 +51,7 @@ public class BookEntity {
     }
 
     public BookEntity(Document bookDocument) {
+        if(bookDocument == null || bookDocument.isEmpty()) { setFieldsEmpty(); return;}
         this.bookId = bookDocument.getString("_id");
         this.title = bookDocument.getString("title");
         this.author = bookDocument.getString("author");
@@ -59,7 +60,7 @@ public class BookEntity {
         this.zipcode = bookDocument.getString("zipcode");
         this.description = bookDocument.getString("description");
         this.available = bookDocument.getBoolean("available");
-        this.ownerUUID = UUID.fromString(bookDocument.getString("ownerUUID"));
+        this.ownerUUID = bookDocument.getString("ownerUUID");
 
     }
 
@@ -84,11 +85,25 @@ public class BookEntity {
     }
 
 
+    private void setFieldsEmpty()
+    {
+        this.bookId = "";
+        this.title = "";
+        this.author = "";
+        this.genre = null;
+        this.image = "";
+        this.zipcode = "";
+        this.description = "";
+        this.available = false;
+        this.ownerUUID = "";
+
+    }
+
     public String getId() { return bookId;}
 
-    public UUID getOwnerUUID() { return ownerUUID; }
+    public String getOwnerUUID() { return ownerUUID; }
 
-    public void setOwnerUUID(UUID ownerUUID) { this.ownerUUID = ownerUUID; }
+    public void setOwnerUUID(String ownerUUID) { this.ownerUUID = ownerUUID; }
 
     public String getTitle()
     {

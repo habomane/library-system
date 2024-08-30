@@ -32,6 +32,7 @@ public class UserEntity {
 
     public UserEntity(Document doc)
     {
+        if(doc == null || doc.isEmpty()) { setFieldsEmpty(); return; }
         id = doc.getString("_id");
         privateKey = doc.getString("privateKey");
         userId = doc.getString("userId");
@@ -51,6 +52,14 @@ public class UserEntity {
 
         doc.putAll(data);
         return doc;
+    }
+
+    private void setFieldsEmpty()
+    {
+        this.id = "";
+        this.userId = "";
+        this.privateKey = "";
+        this.dateCreation = "";
     }
 
     public String getId() { return id; }

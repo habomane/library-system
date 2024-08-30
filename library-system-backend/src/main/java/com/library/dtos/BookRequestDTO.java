@@ -14,7 +14,7 @@ public class BookRequestDTO {
     public  String zipcode;
     public String description;
     public boolean available;
-    public UUID ownerUUID;
+    public String ownerUUID;
 
     public BookRequestDTO() {}
 

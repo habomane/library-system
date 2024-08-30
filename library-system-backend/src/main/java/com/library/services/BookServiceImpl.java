@@ -19,8 +19,7 @@ public class BookServiceImpl implements BookService{
     @Override
     public BookDTO find(String id)
     {
-        BookDTO newBook = new BookDTO(bookRepository.findOne(id));
-        return newBook;
+        return new BookDTO(bookRepository.findOne(id));
     }
 
     @Override

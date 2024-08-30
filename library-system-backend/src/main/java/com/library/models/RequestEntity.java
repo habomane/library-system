@@ -33,6 +33,7 @@ public class RequestEntity {
 
     public RequestEntity(Document request)
     {
+        if(request == null || request.isEmpty()) { setFieldsEmpty(); return; }
         requestId = request.getString("_id");
         receivingUUID = request.getString("receivingUUID");
         requestingUUID = request.getString("requestingUUID");
@@ -56,6 +57,13 @@ public class RequestEntity {
 
     }
 
+    private void setFieldsEmpty()
+    {
+        this.requestId = "";
+        this.receivingUUID = "";
+        this.requestingUUID = "";
+        this.status = null;
+    }
 
     public String getRequestId() { return requestId; }
 

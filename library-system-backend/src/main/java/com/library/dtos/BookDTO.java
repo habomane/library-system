@@ -16,7 +16,7 @@ public class BookDTO {
     public  String zipcode;
     public String description;
     public boolean available;
-    public UUID ownerUUID;
+    public String ownerUUID;
 
     public BookDTO() {}
 
