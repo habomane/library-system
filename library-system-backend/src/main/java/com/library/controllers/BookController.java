@@ -51,7 +51,7 @@ public class BookController {
         {
             BookDTO returnedBook = bookService.find(id);
 
-            if(!returnedBook.isValid()) { throw new EntityNotFoundException();}
+            if(returnedBook.bookId == null || returnedBook.bookId.isEmpty()) { throw new EntityNotFoundException();}
 
             return ResponseEntity.status(HttpStatus.OK)
                     .body(returnedBook);
