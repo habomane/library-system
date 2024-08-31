@@ -10,7 +10,9 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.result.DeleteResult;
 import com.mongodb.client.result.InsertOneResult;
+import com.mongodb.client.result.UpdateResult;
 import jakarta.annotation.PostConstruct;
+import org.apache.catalina.User;
 import org.bson.conversions.Bson;
 import org.springframework.stereotype.Repository;
 
@@ -40,8 +42,8 @@ public class DBUserRepository implements UserRepository {
 
 
     @Override
-    public UserEntity find(String userId) {
-        Bson filter = Filters.eq("userId", userId);
+    public UserEntity find(Map<String, String> filterParams) {
+        Bson filter = Filters.eq(filterParams.keySet().iterator().next(), filterParams.values().iterator().next());
         return new UserEntity(userCollection.find(filter).first());
     }
 
@@ -54,6 +56,18 @@ public class DBUserRepository implements UserRepository {
     public UserEntity post(UserEntity user) {
         InsertOneResult result = userCollection.insertOne(user.toDocumentEntity());
         if(result.wasAcknowledged()) { return user; }
+        return null;
+    }
+
+    @Override
+    public UserEntity update(UserEntity user) {
+        Bson filter = Filters.eq("userId", user.getUserId());
+        UserEntity resultWithID = new UserEntity(userCollection.find(filter).first());
+        if(resultWithID.getId() == null || resultWithID.getId().isEmpty()) { return null; }
+        user.setId(resultWithID.getId());
+        System.out.println(user.toDocumentEntity());
+        UpdateResult result = userCollection.replaceOne(filter, user.toDocumentEntity());
+        if(result.getMatchedCount() > 0) { return user;}
         return null;
     }
 

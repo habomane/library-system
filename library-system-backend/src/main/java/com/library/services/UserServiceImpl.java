@@ -17,8 +17,8 @@ public class UserServiceImpl implements UserService {
     public UserServiceImpl(UserRepository userRepository) { this.userRepository = userRepository; }
 
     @Override
-    public UserDTO find(String id) {
-        return new UserDTO(userRepository.find(id));
+    public UserDTO find(Map<String, String> filterParams) {
+        return new UserDTO(userRepository.find(filterParams));
     }
 
     @Override
@@ -29,6 +29,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDTO post(UserRequestDTO user) {
         return new UserDTO(userRepository.post(user.toUserEntity()));
+    }
+
+    @Override
+    public UserDTO update(UserDTO user) {
+        return new UserDTO(userRepository.update(user.toUserEntity()));
     }
 
     @Override

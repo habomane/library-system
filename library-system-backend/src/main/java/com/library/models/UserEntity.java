@@ -11,15 +11,19 @@ public class UserEntity {
     private String userId;
     private String privateKey;
     private String dateCreation;
+    private String description;
+    private String displayName;
 
     public UserEntity() {}
 
-    public UserEntity(String id, String userId, String privateKey, String dateCreation)
+    public UserEntity(String id, String userId, String privateKey, String displayName, String dateCreation, String description)
     {
         this.id = id;
         this.userId = userId;
         this.privateKey = privateKey;
         this.dateCreation = dateCreation;
+        this.description = description;
+        this.displayName = displayName;
     }
 
     public UserEntity(String privateKey)
@@ -28,6 +32,8 @@ public class UserEntity {
         this.privateKey = privateKey;
         userId = UUID.randomUUID().toString();
         dateCreation = LocalDateTime.now().toString();
+        description = "";
+        displayName = "User";
     }
 
     public UserEntity(Document doc)
@@ -37,6 +43,8 @@ public class UserEntity {
         privateKey = doc.getString("privateKey");
         userId = doc.getString("userId");
         dateCreation = doc.getString("dateCreation");
+        description = doc.getString("description");
+        displayName = doc.getString("displayName");
 
     }
 
@@ -48,6 +56,8 @@ public class UserEntity {
             put("privateKey", privateKey);
             put("userId", userId);
             put("dateCreation", dateCreation);
+            put("description", description);
+            put("displayName", displayName);
         }};
 
         doc.putAll(data);
@@ -64,6 +74,8 @@ public class UserEntity {
 
     public String getId() { return id; }
 
+    public void setId(String id) {this.id = id; }
+
     public String getUserId() { return userId; }
 
     public void setUserId(UUID userId) { this.userId = userId.toString(); }
@@ -76,5 +88,11 @@ public class UserEntity {
 
     public void setDateCreation(String dateCreation) { this.dateCreation = dateCreation; }
 
+    public String getDescription() { return description;}
 
+    public void setDescription(String description) { this.description = description; }
+
+    public String getDisplayName() { return displayName; }
+
+    public void setDisplayName(String displayName) { this.displayName = displayName; }
 }

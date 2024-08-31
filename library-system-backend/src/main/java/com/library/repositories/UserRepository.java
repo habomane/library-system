@@ -7,11 +7,13 @@ import java.util.*;
 @Repository
 public interface UserRepository {
 
-    UserEntity find(String userId);
+    UserEntity find(Map<String, String> filterParams);
 
     List<UserEntity> findAll();
 
     UserEntity post(UserEntity user);
+
+    UserEntity update(UserEntity user);
 
     Map<String, String> delete(String userId);
 }

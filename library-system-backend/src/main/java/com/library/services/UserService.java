@@ -7,11 +7,13 @@ import java.util.*;
 
 public interface UserService {
 
-    UserDTO find(String id);
+    UserDTO find(Map<String, String> filterParams);
 
     List<UserDTO> findAll();
 
     UserDTO post(UserRequestDTO user);
+
+    UserDTO update(UserDTO user);
 
     Map<String, String> delete(String id);
 

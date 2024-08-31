@@ -1,5 +1,6 @@
 /Users/habsoomane/Projects/library-system/library-system-backend/src/main/java/com/library/LibrarySystemAPI.java
 /Users/habsoomane/Projects/library-system/library-system-backend/src/main/java/com/library/MongoDBConfiguration.java
+/Users/habsoomane/Projects/library-system/library-system-backend/src/main/java/com/library/WebConfig.java
 /Users/habsoomane/Projects/library-system/library-system-backend/src/main/java/com/library/controllers/BookController.java
 /Users/habsoomane/Projects/library-system/library-system-backend/src/main/java/com/library/controllers/BookFavoriteController.java
 /Users/habsoomane/Projects/library-system/library-system-backend/src/main/java/com/library/controllers/RequestController.java

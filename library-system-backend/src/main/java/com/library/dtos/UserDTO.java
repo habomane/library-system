@@ -7,6 +7,8 @@ public class UserDTO {
     public String userId;
     public String privateKey;
     public String dateCreation;
+    public String description;
+    public String displayName;
 
     public UserDTO() {}
 
@@ -15,11 +17,13 @@ public class UserDTO {
         this.privateKey = userEntity.getPrivateKey();
         this.userId = userEntity.getUserId();
         this.dateCreation = userEntity.getDateCreation();
+        this.description = userEntity.getDescription();
+        this.displayName = userEntity.getDisplayName();
     }
 
     public UserEntity toUserEntity()
     {
-        return new UserEntity(id, userId, privateKey, dateCreation);
+        return new UserEntity(id, userId, privateKey, displayName, dateCreation, description);
     }
 
     public boolean isValid()

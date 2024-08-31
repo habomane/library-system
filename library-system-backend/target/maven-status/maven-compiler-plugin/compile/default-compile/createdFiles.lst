@@ -38,3 +38,4 @@ com/library/MongoDBConfiguration.class
 com/library/LibrarySystemAPI.class
 com/library/services/RequestServiceImpl.class
 com/library/models/UserEntity$1.class
+com/library/WebConfig.class
