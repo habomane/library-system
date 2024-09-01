@@ -47,7 +47,7 @@ function Header() {
         {
               user.userId !== "" &&
               <>
-                      <Link to="/library"><p className="cursor font-medium hover:underline hover:underline-offset-8 active:text-green-700">Book Requests</p></Link>
+                      <Link to="/request"><p className="cursor font-medium hover:underline hover:underline-offset-8 active:text-green-700">Book Requests</p></Link>
             <Link to="/library"><p className="cursor font-medium hover:underline hover:underline-offset-8 active:text-green-700">My Library</p></Link>
 
               </>
@@ -60,7 +60,7 @@ function Header() {
             {
               user.userId !== "" &&
               <>
-                        <Link to="/library"><p 
+                        <Link to="/request"><p 
           onClick={() => toggleNavOpenDisplay(!navOpenDisplay)}
           className="cursor font-medium hover:underline hover:underline-offset-8 active:text-green-700">Book Requests</p></Link>
             <Link to="/library"

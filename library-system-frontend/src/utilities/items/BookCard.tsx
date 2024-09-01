@@ -6,8 +6,8 @@ function BookCard({ book }: { book: Book }) {
     <div className="w-[65%] md:w-[25%]">
       <div className="bg-white rounded-lg shadow-lg">
         <img
-          src={book.image}
-          alt=""
+          src={book.image === "" ? "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149330605.jpg" : book.image}
+          alt={book.title + " Book Cover."}
           className="rounded-t-lg h-[30vh] w-screen"
         />
         <div className="p-6">
@@ -23,7 +23,7 @@ function BookCard({ book }: { book: Book }) {
           </p>
           </div>
 
-        <Link to={`/details/${book.id}`}>
+        <Link to={`/details/${book.bookId}`}>
           <p
             className="hover:text-green-700 font-semibold cursor underline underline-offset-4 text-sm"
           >

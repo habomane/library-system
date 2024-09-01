@@ -1,35 +1,46 @@
-import { allBooksMock } from "../mock";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Book } from "../models";
-import { findBook } from "../helper";
+import * as bookService from "../service";
 import { getLocation } from "../service";
 
 function BookDetailsPage() {
-  const bookDefault = new Book(0, "", "", "", "", false, "", "", "");
+  const bookDefault = new Book("", "", "", "", "", false, "", "", "", "");
   const { id } = useParams();
   const [book, setBook] = useState(bookDefault);
   const [formattedAddress, setFormattedAddress] = useState("");
 
   useEffect(() => {
-    const book = findBook(parseInt(id || "0"), allBooksMock) || bookDefault;
+    async function getUserBook() {
+      const response = await bookService.getBook(id || "");
+      if (response !== null) {
+        setBook(response);
+      }
+    }
+    getUserBook();
+  }, [id]);
 
-    setBook(book);
-
+  useEffect(() => {
     async function setLocationReadable() {
       const location = await getLocation(book.zipcode);
       setFormattedAddress(location);
     }
 
-    setLocationReadable();
-  }, [id]);
+    if (book.zipcode !== "") {
+      setLocationReadable();
+    }
+  }, [book]);
 
   return (
     <main className="container mx-auto">
       <div className="flex flex-col md:flex-row gap-y-3 gap-x-3 justify-around mt-8">
         <div className="w-screen px-5 md:px-0 md:w-[40%] ">
           <img
-            src={book.image}
+            src={
+              book.image === ""
+                ? "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149330605.jpg"
+                : book.image
+            }
             alt={book.title + " book cover."}
             className="w-screen h-[70vh]"
           />
@@ -48,26 +59,16 @@ function BookDetailsPage() {
               </p>
             </div>
 
-            <p className="text-lg mt-8 text-slate-500">Author: {book.author}</p>
-            <p className="text-lg text-slate-500">Genre: {book.genre}</p>
-            <p className="text-lg text-slate-500">
-              Posted By: {book.ownerUserName}
+            <p className=" mt-6 text-slate-500">Author: {book.author}</p>
+            <p className=" text-slate-500">Genre: {book.genre}</p>
+            <p className=" text-slate-500">Posted By: {book.ownerUserId}</p>
+            <p className=" text-slate-500">Location: {formattedAddress}</p>
+            <p className="text-slate-500">
+              Date Posted: {book.dateCreated.toDateString()}
             </p>
-            <p className="text-lg text-slate-500">
-              Location: {formattedAddress}
-            </p>
-            <p className="text-md mt-10 text-slate-500">
-              {book.description} Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-              exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-              occaecat cupidatat non proident, sunt in culpa qui officia
-              deserunt mollit anim id est laborum.
-            </p>
+            <p className="text-md mt-8 text-slate-500">{book.description}</p>
 
-            <div className="flex flex-row items-center w-full justify-center md:justify-normal gap-x-5 md:w-[40%] mt-10">
+            <div className="flex flex-row items-center w-full justify-center md:justify-normal gap-x-5 md:w-[40%] mt-8">
               <button className="rounded-lg px-4 py-2 font-medium bg-green-300 hover:bg-green-700 hover:text-white duration-300">
                 Request
               </button>

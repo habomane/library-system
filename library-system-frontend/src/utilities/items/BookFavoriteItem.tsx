@@ -15,7 +15,7 @@ function BookFavoriteItem({ book }: { book: Book }) {
             <p className="">{book.author}</p>
 
             <div className="flex flex-row gap-x-4">
-              <Link to={`/details/${book.id}`}>
+              <Link to={`/details/${book.bookId}`}>
                 <button className="rounded-lg px-4 py-1 font-medium bg-yellow-500 hover:bg-yellow-800 hover:text-white duration-300">
                   Details
                 </button>

@@ -1,7 +1,8 @@
-import { allBooksMock } from "../mock";
+
 import { useState, useEffect } from "react";
 import { Book } from "../models";
 import { queryBooks } from "../helper";
+import * as bookService from '../service'
 
 // Components 
 import BookCard from "../utilities/items/BookCard";
@@ -10,18 +11,31 @@ import SearchBar from "../utilities/search/SearchBar";
 function DiscoverPage()
 {
     const blankBooks: Book[] =[]
+    const [allBooksGeneral, setAllBooksGeneral] = useState(blankBooks);
     const [allBooks, setAllBooks] = useState(blankBooks);
     const [query, setQuery] = useState("");
 
     useEffect(() => {
-        if(query === "") { setAllBooks(allBooksMock)}
+       async function getAllBooks() {
+        const response = await bookService.getAllBooks();
+        if(response !== null) {
+            setAllBooksGeneral(response);
+            setAllBooks(response);
+        }
+       }
+
+       getAllBooks();
+    }, [])
+
+    useEffect(() => {
+        if(query === "") { setAllBooks(allBooksGeneral)}
         else 
         {
-            const filteredBooks = queryBooks(query, allBooksMock);
+            const filteredBooks = queryBooks(query, allBooksGeneral);
             setAllBooks(filteredBooks);
         }
-
     }, [query])
+
     return (
         <main className="container  mx-auto">
             <SearchBar setQuery={setQuery}></SearchBar>
