@@ -17,6 +17,7 @@ public class BookDTO {
     public String description;
     public boolean available;
     public String ownerUserId;
+    public String dateCreated;
 
     public BookDTO() {}
 
@@ -31,10 +32,11 @@ public class BookDTO {
         description = book.getDescription();
         available = book.getAvailable();
         ownerUserId = book.getownerUserId();
+        dateCreated = book.getDateCreated();
     }
 
     public BookEntity toBookEntity() {
-        return new BookEntity(bookId, title, author, genre, image, zipcode, description, available, ownerUserId);
+        return new BookEntity(bookId, title, author, genre, image, zipcode, description, available, ownerUserId, dateCreated);
     }
 
     public boolean isValid()

@@ -41,7 +41,7 @@ public class BookEntity {
     }
 
     public BookEntity(String bookId, String title, String author, BookGenre genre, String image, String zipcode,
-                      String description, boolean available, String ownerUserId) {
+                      String description, boolean available, String ownerUserId, String dateCreated) {
 
         this.bookId = bookId;
         this.title = title;
@@ -52,7 +52,7 @@ public class BookEntity {
         this.description = description;
         this.available = available;
         this.ownerUserId = ownerUserId;
-        this.dateCreated = LocalDateTime.now().toString();
+        this.dateCreated = dateCreated;
 
     }
 
