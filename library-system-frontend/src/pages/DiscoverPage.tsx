@@ -14,7 +14,6 @@ function DiscoverPage()
     const [query, setQuery] = useState("");
 
     useEffect(() => {
-        console.log(query);
         if(query === "") { setAllBooks(allBooksMock)}
         else 
         {

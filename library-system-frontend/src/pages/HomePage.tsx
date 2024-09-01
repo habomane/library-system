@@ -45,7 +45,7 @@ function HomePage()
                 <div className="flex flex-col md:flex-row justify-around px-10 py-8 items-center gap-y-5">
                     <div className="md:w-1/2 text-center md:text-left">
                     <p className="text-lg"><span className="text-white font-semibold bg-green-700 py-1 px-3 rounded-full mr-3">3</span>Step Three</p>
-                    <p className="text-lg mt-3">Once users have received the book, it is theres to enjoy for the allocated time. All material on the community library should be returned if that was specified by the original poster. Happy reading!</p>
+                    <p className="text-lg mt-3">Once users have received the book, it is theirs to enjoy for the allocated time. All material on the community library should be returned if that was specified by the original poster. Happy reading!</p>
                     <button className="rounded-lg px-4 mt-8 py-2 font-medium bg-green-700 hover:bg-green-900 text-white duration-300">
                 Discover
               </button>

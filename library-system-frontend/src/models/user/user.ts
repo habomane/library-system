@@ -1,15 +1,28 @@
 export class User 
 {
-    pubKey: string;
-    userName: string;
+    privateKey: string;
     description: string; 
-    id: number;
+    userId: string;
+    dateCreation: Date;
+    displayName: string;
 
-    constructor(pubKey: string, id: number, userName: string, description: string)
+    constructor(privateKey: string, userId: string, displayName: string, description: string, dateCreation: string)
     {
-        this.pubKey = pubKey;
-        this.userName = userName;
+
+        this.privateKey = privateKey;
         this.description = description
-        this.id = id;
+        this.userId = userId;
+        this.dateCreation = new Date(dateCreation);
+        this.displayName = displayName;
+    }
+}
+
+export class UserRequest
+{
+    privateKey: string;
+
+    constructor(privateKey: string)
+    {
+        this.privateKey = privateKey;
     }
 }

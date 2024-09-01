@@ -36,7 +36,7 @@ const routes = createBrowserRouter([
 ]);
 
 function App() {
-  const [user, setUser] = useState(new User("", 0, "", ""));
+  const [user, setUser] = useState(new User("", "", "", "", ""));
 
   useEffect(() => {
     if (userDetailsExist()) {
