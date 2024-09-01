@@ -23,8 +23,8 @@ public class BookServiceImpl implements BookService{
     }
 
     @Override
-    public List<BookDTO> findAll() {
-        return bookRepository.findAll().stream().map(BookDTO:: new).toList();
+    public List<BookDTO> findAll(Map<String, String> filter) {
+        return bookRepository.findAll(filter).stream().map(BookDTO:: new).toList();
     }
 
     @Override

@@ -43,8 +43,10 @@ public class DBBookRepository implements BookRepository {
 
 
     @Override
-    public List<BookEntity> findAll() {
-        return bookCollection.find().into(new ArrayList<>()).stream().map(BookEntity::new).toList();
+    public List<BookEntity> findAll(Map<String, String> filter) {
+        if(filter.values().iterator().next() == null) { return bookCollection.find().into(new ArrayList<>()).stream().map(BookEntity::new).toList(); }
+        Bson mongoFilter = Filters.eq(filter.keySet().iterator().next(), filter.values().iterator().next());
+        return bookCollection.find(mongoFilter).into(new ArrayList<>()).stream().map(BookEntity::new).toList();
     }
 
     @Override

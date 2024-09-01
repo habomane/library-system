@@ -31,7 +31,7 @@ public class BookDTO {
         zipcode = book.getZipcode();
         description = book.getDescription();
         available = book.getAvailable();
-        ownerUserId = book.getownerUserId();
+        ownerUserId = book.getOwnerUserId();
         dateCreated = book.getDateCreated();
     }
 

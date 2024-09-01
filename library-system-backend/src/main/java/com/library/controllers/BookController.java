@@ -30,12 +30,13 @@ public class BookController {
 
     // GET
     @GetMapping("/")
-    public ResponseEntity getBooks()
+    public ResponseEntity getBooks(@RequestParam(name="userId", required=false) String userId)
     {
         try
         {
+            Map<String, String> filter = Collections.singletonMap("ownerUserId", userId);
             return ResponseEntity.status(HttpStatus.OK)
-                    .body(bookService.findAll());
+                    .body(bookService.findAll(filter));
         }
         catch(Exception e)
         {

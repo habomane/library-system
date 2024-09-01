@@ -30,7 +30,7 @@ public class BookFavoriteController {
     // GET
 
     @GetMapping("/")
-    public ResponseEntity getFavorites(@RequestParam(name="UUID", required = false) String uuid)
+    public ResponseEntity getFavorites(@RequestParam(name="userId", required = false) String uuid)
     {
         try
         {

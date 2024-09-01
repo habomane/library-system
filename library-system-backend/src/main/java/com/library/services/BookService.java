@@ -8,7 +8,7 @@ import java.util.*;
 
 public interface BookService {
 
-    List<BookDTO> findAll();
+    List<BookDTO> findAll(Map<String, String> filter);
 
     BookDTO find(String id);
 

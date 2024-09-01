@@ -110,9 +110,9 @@ public class BookEntity {
 
     public String getId() { return bookId;}
 
-    public String getownerUserId() { return ownerUserId; }
+    public String getOwnerUserId() { return ownerUserId; }
 
-    public void setownerUserId(String ownerUserId) { this.ownerUserId = ownerUserId; }
+    public void setOwnerUserId(String ownerUserId) { this.ownerUserId = ownerUserId; }
 
     public String getTitle()
     {

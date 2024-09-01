@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface BookRepository {
 
-    List<BookEntity> findAll();
+    List<BookEntity> findAll(Map<String, String> filter);
 
     BookEntity findOne(String id);
 
