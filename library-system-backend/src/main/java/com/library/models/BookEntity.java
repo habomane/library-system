@@ -4,6 +4,8 @@ import org.bson.types.ObjectId;
 import com.library.types.BookGenre;
 import org.bson.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
+
+import java.time.LocalDateTime;
 import java.util.*;
 import java.awt.print.Book;
 
@@ -18,13 +20,14 @@ public class BookEntity {
     private String zipcode;
     private String description;
     private boolean available;
-    private String ownerUUID;
+    private String ownerUserId;
+    private String dateCreated;
 
     public BookEntity() {
     }
 
     public BookEntity(String title, String author, BookGenre genre, String image, String zipcode,
-                      String description, boolean available, String ownerUUID) {
+                      String description, boolean available, String ownerUserId) {
         this.bookId = new ObjectId().toHexString();
         this.title = title;
         this.author = author;
@@ -33,11 +36,12 @@ public class BookEntity {
         this.zipcode = zipcode;
         this.description = description;
         this.available = available;
-        this.ownerUUID = ownerUUID;
+        this.ownerUserId = ownerUserId;
+        this.dateCreated = LocalDateTime.now().toString();
     }
 
     public BookEntity(String bookId, String title, String author, BookGenre genre, String image, String zipcode,
-                      String description, boolean available, String ownerUUID) {
+                      String description, boolean available, String ownerUserId) {
 
         this.bookId = bookId;
         this.title = title;
@@ -47,7 +51,9 @@ public class BookEntity {
         this.zipcode = zipcode;
         this.description = description;
         this.available = available;
-        this.ownerUUID = ownerUUID;
+        this.ownerUserId = ownerUserId;
+        this.dateCreated = LocalDateTime.now().toString();
+
     }
 
     public BookEntity(Document bookDocument) {
@@ -60,7 +66,8 @@ public class BookEntity {
         this.zipcode = bookDocument.getString("zipcode");
         this.description = bookDocument.getString("description");
         this.available = bookDocument.getBoolean("available");
-        this.ownerUUID = bookDocument.getString("ownerUUID");
+        this.ownerUserId = bookDocument.getString("ownerUserId");
+        this.dateCreated = bookDocument.getString("dateCreated");
 
     }
 
@@ -74,7 +81,8 @@ public class BookEntity {
             put("zipcode", zipcode);
             put("description", description);
             put("available", available);
-            put("ownerUUID", ownerUUID);
+            put("ownerUserId", ownerUserId);
+            put("dateCreated", dateCreated);
         }};
 
         Document newDoc = new Document();
@@ -95,15 +103,16 @@ public class BookEntity {
         this.zipcode = "";
         this.description = "";
         this.available = false;
-        this.ownerUUID = "";
+        this.ownerUserId = "";
+        this.dateCreated = "";
 
     }
 
     public String getId() { return bookId;}
 
-    public String getOwnerUUID() { return ownerUUID; }
+    public String getownerUserId() { return ownerUserId; }
 
-    public void setOwnerUUID(String ownerUUID) { this.ownerUUID = ownerUUID; }
+    public void setownerUserId(String ownerUserId) { this.ownerUserId = ownerUserId; }
 
     public String getTitle()
     {
@@ -174,6 +183,10 @@ public class BookEntity {
     {
         this.available = available;
     }
+
+    public String getDateCreated() { return dateCreated; }
+
+    public void setDateCreated(LocalDateTime dateCreated) { this.dateCreated = dateCreated.toString();}
 
 
 }

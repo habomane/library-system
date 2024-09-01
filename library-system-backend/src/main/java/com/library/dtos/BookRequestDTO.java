@@ -14,19 +14,19 @@ public class BookRequestDTO {
     public  String zipcode;
     public String description;
     public boolean available;
-    public String ownerUUID;
+    public String ownerUserId;
 
     public BookRequestDTO() {}
 
 
     public BookEntity toBookEntity() {
-        return new BookEntity(title, author, genre, image, zipcode, description, available, ownerUUID);
+        return new BookEntity(title, author, genre, image, zipcode, description, available, ownerUserId);
     }
 
     public boolean isValid()
     {
         return title == null || title.isEmpty() && author == null || author.isEmpty()
-                || ownerUUID == null ? false : true;
+                || ownerUserId == null ? false : true;
     }
 
 

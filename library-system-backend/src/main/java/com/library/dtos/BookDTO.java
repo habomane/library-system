@@ -16,7 +16,7 @@ public class BookDTO {
     public  String zipcode;
     public String description;
     public boolean available;
-    public String ownerUUID;
+    public String ownerUserId;
 
     public BookDTO() {}
 
@@ -30,17 +30,17 @@ public class BookDTO {
         zipcode = book.getZipcode();
         description = book.getDescription();
         available = book.getAvailable();
-        ownerUUID = book.getOwnerUUID();
+        ownerUserId = book.getownerUserId();
     }
 
     public BookEntity toBookEntity() {
-        return new BookEntity(bookId, title, author, genre, image, zipcode, description, available, ownerUUID);
+        return new BookEntity(bookId, title, author, genre, image, zipcode, description, available, ownerUserId);
     }
 
     public boolean isValid()
     {
         return title == null || title.isEmpty() || author == null || author.isEmpty()
-                || ownerUUID == null ? false : true;
+                || ownerUserId == null ? false : true;
     }
 
 

@@ -117,18 +117,24 @@ This endpoint allows users to retrieve all the existing books. A successful requ
 "title": "A Brave New World",
 "author": "Aldous Huxley",
 "genre": "SCIENCE_FICTION",
+"image": "https://www.example.com/img.png", 
 "zipcode": "11098", 
 "description": "Brave New World is a dystopian novel by English author Aldous Huxley, written in 1931 and published in 1932.",
-"available": true
+"available": true,
+"ownerUserId: "8932-18247-2378",
+dateCreated: "2024-08-31T20:29:34.712056338"
 }, 
 {
 "bookId": "66c8b591b54f4e47f8f41f4e",
 "title": "A Brave New World Version 2",
 "author": "Aldous Huxley",
 "genre": "SCIENCE_FICTION",
+"image": "https://www.example.com/img.png", 
 "zipcode": "11098", 
 "description": "Brave New World is a dystopian novel by English author Aldous Huxley, written in 1931 and published in 1932.",
-"available": true
+"available": true,
+"ownerUserId: "8932-18247-2378",
+dateCreated: "2024-08-31T20:29:34.712056338"
 }
 ]
 
@@ -146,9 +152,12 @@ This endpoint allows users to retrieve the book associated with the ID provided 
 "title": "A Brave New World",
 "author": "Aldous Huxley",
 "genre": "SCIENCE_FICTION",
+"image": "https://www.example.com/img.png", 
 "zipcode": "11098", 
 "description": "Brave New World is a dystopian novel by English author Aldous Huxley, written in 1931 and published in 1932.",
-"available": true
+"available": true,
+"ownerUserId: "8932-18247-2378",
+dateCreated: "2024-08-31T20:29:34.712056338"
 }
 
 ```
@@ -167,9 +176,11 @@ This endpoint allows users to create a new books. The body of the requests follo
 "title": "A Brave New World",
 "author": "Aldous Huxley",
 "genre": "SCIENCE_FICTION",
+"image": "https://www.example.com/img.png", 
 "zipcode": "11098", 
 "description": "Brave New World is a dystopian novel by English author Aldous Huxley, written in 1931 and published in 1932.",
-"available": true
+"available": true,
+"ownerUserId": "1234-5678-890"
 }
 ```
 
@@ -183,9 +194,12 @@ This endpoint will return the newly created book with the subsequent ID value. T
 "title": "A Brave New World",
 "author": "Aldous Huxley",
 "genre": "SCIENCE_FICTION",
+"image": "https://www.example.com/img.png", 
 "zipcode": "11098", 
 "description": "Brave New World is a dystopian novel by English author Aldous Huxley, written in 1931 and published in 1932.",
-"available": true
+"available": true,
+"ownerUserId": "1234-5678-890",
+"dateCreated": "2024-08-31T20:29:34.712056338"
 }
 ```
 
@@ -200,9 +214,11 @@ This endpoint allows users to create several book entities at once. The body of 
 "title": "",
 "author": "",
 "genre": "",
+"image": "", 
 "zipcode": "", 
 "description": "",
-"available": false
+"available": false,
+"ownerUserId": ""
 }, 
 {..}
 ]
@@ -224,10 +240,12 @@ This endpoint allows users to update a book entity by supplying the request body
 "bookId": "", 
 "title": "",
 "author": "",
+"image": "",
 "genre": "",
 "zipcode": "", 
 "description": "",
-"available": false
+"available": false,
+"ownerUserId": ""
 }
 
 ```
@@ -247,9 +265,11 @@ This endpoint allows users to update several book entities by supplying the requ
 "title": "",
 "author": "",
 "genre": "",
+"image": "",
 "zipcode": "", 
 "description": "",
-"available": false
+"available": false,
+"ownerUserId": ""
 },
 {..}
 ]
