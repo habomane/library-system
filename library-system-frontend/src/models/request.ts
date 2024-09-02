@@ -1,18 +1,18 @@
 export class Request
 {
     requestId: string;
-    requesterUserId: string;
+    requestingUserId: string;
     receivingUserId: string;
     status: string;
     details: string;
     dateCreated: Date;
 
-    constructor(requestId: string, requesterUserId: string, receivingUserId: string, 
+    constructor(requestId: string, requestingUserId: string, receivingUserId: string, 
         status: string, details: string, dateCreated: string
     )
     {
         this.requestId = requestId;
-        this.requesterUserId = requesterUserId;
+        this.requestingUserId = requestingUserId;
         this.receivingUserId = receivingUserId;
         this.status = status;
         this.details = details;
@@ -23,16 +23,16 @@ export class Request
 
 export class RequestRequest
 {
-    requesterUserId: string;
+    requestingUserId: string;
     receivingUserId: string;
     status: string;
     details: string;
 
-    constructor(requesterUserId: string, receivingUserId: string, 
+    constructor(requestingUserId: string, receivingUserId: string, 
         status: string, details: string
     )
     {
-        this.requesterUserId = requesterUserId;
+        this.requestingUserId = requestingUserId;
         this.receivingUserId = receivingUserId;
         this.status = status;
         this.details = details;

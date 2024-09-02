@@ -3,7 +3,8 @@ import { useState, useEffect, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Book, RequestRequest } from "../models";
 import { UserContext } from "../App";
-import * as bookService from '../service'
+import * as requestService from '../service'
+import * as helper from '../helper'
 import { RequestStatus } from "../types";
 
 
@@ -24,9 +25,10 @@ function CreateRequestPage() {
 
   useEffect(() => {
     async function getUserBook() {
-      const response = await bookService.getBook(id || "");
+      const response = await requestService.getBook(id || "");
       if (response !== null) {
         setBook(response);
+        setDetails(`Request for the book ${response.title}\n`)
       }
     }
     getUserBook();
@@ -42,8 +44,11 @@ function CreateRequestPage() {
 
   async function createRequest()
   {
-    const request = new RequestRequest(user.userId, book.ownerUserId, RequestStatus.PENDING, details);
-    console.log(JSON.stringify(request))
+    const request = new RequestRequest(user.userId, book.ownerUserId, helper.transformBookStatusToRequestString(RequestStatus.PENDING) || "", details);
+    const response = requestService.createNewRequest(request);
+    if(response === null) { alert("Something went wrong. Please try again later."); return;}
+    alert("Response has been created");
+    navigate('/request');
   }
 
   return (
@@ -53,7 +58,7 @@ function CreateRequestPage() {
           <div className="py-12 px-5 md:pl-10">
             <div className="flex flex-row gap-x-2 mb-5">
               <h1 className="text-3xl font-bold tracking-widest">
-              {book.title}
+              New Request
               </h1>
             </div>
 

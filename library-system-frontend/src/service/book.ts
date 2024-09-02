@@ -1,5 +1,4 @@
 import { Book, BookRequest, BookRequestPut } from "../models";
-import * as helper from '../helper'
 
 const URL = import.meta.env.VITE_LIBRARY_SYSTEM_URL;
 

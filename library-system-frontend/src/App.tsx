@@ -16,7 +16,8 @@ import SignUpPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 import BookRequestPage from "./pages/BookRequestPage";
 import CreateRequestPage from "./pages/CreateRequestPage";
-
+import ReceivedRequestPage from "./pages/ReceivedRequestPage";
+import RequestedRequestPage from "./pages/RequestedRequestPage";
 export const UserContext = createContext<[User, React.Dispatch<React.SetStateAction<User>>] | null>(null);
 
 const routes = createBrowserRouter([
@@ -33,7 +34,9 @@ const routes = createBrowserRouter([
       { path: "/signup", element: <SignUpPage /> },
       { path: "/login", element: <LoginPage /> },
       { path: "/request/", element: <BookRequestPage /> },
-      {path: "/request/create/:id", element: <CreateRequestPage /> }
+      {path: "/request/create/:id", element: <CreateRequestPage /> },
+      {path: "/request/received/:id", element: <ReceivedRequestPage /> },
+      {path: "/request/requested/:id", element: <RequestedRequestPage /> },
     ],
     errorElement: <ErrorBoundary />,
   },
