@@ -1,5 +1,4 @@
-import { BookGenre } from "../../types";
-import * as helper from '../../helper'
+import * as helper from "../helper";
 export class Book {
   bookId: string;
   title: string;
@@ -13,7 +12,7 @@ export class Book {
   dateCreated: Date;
 
   constructor(
-    bookId: string, 
+    bookId: string,
     title: string,
     author: string,
     genre: string,
@@ -35,7 +34,6 @@ export class Book {
     this.genre = helper.transformGenreString(genre) || "";
     this.dateCreated = new Date(dateCreated);
   }
-
 }
 
 export class BookRequest {
@@ -67,7 +65,6 @@ export class BookRequest {
     this.ownerUserId = ownerUserId;
     this.genre = genre;
   }
-
 }
 
 export class BookRequestPut {
@@ -83,7 +80,7 @@ export class BookRequestPut {
   dateCreated: string;
 
   constructor(
-    bookId: string, 
+    bookId: string,
     title: string,
     author: string,
     genre: string,
@@ -105,5 +102,4 @@ export class BookRequestPut {
     this.genre = genre;
     this.dateCreated = dateCreated;
   }
-
 }

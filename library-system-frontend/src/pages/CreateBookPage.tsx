@@ -8,7 +8,7 @@ import * as bookService from '../service'
 import * as helper from '../helper'
 
 
-function CreateBook() {
+function CreateBookPage() {
   const navigate = useNavigate();
   const { id } = useParams();
   const context = useContext(UserContext);
@@ -171,4 +171,4 @@ function CreateBook() {
   );
 }
 
-export default CreateBook;
+export default CreateBookPage;

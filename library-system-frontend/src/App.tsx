@@ -8,13 +8,14 @@ import HomePage from "./pages/HomePage";
 import DiscoverPage from "./pages/DiscoverPage";
 import LibraryPage from "./pages/LibraryPage";
 import EditBookPage from "./pages/EditBook";
-import CreateBookPage from "./pages/CreateBook";
+import CreateBookPage from "./pages/CreateBookPage";
 import BookDetailsPage from "./pages/BookDetails";
 import AccountDetailsPage from "./pages/AccountDetailsPage";
 import ErrorBoundary from "./pages/ErrorPage";
 import SignUpPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 import BookRequestPage from "./pages/BookRequestPage";
+import CreateRequestPage from "./pages/CreateRequestPage";
 
 export const UserContext = createContext<[User, React.Dispatch<React.SetStateAction<User>>] | null>(null);
 
@@ -31,7 +32,8 @@ const routes = createBrowserRouter([
       { path: "/account/:id", element: <AccountDetailsPage /> },
       { path: "/signup", element: <SignUpPage /> },
       { path: "/login", element: <LoginPage /> },
-      { path: "/request/", element: <BookRequestPage /> }
+      { path: "/request/", element: <BookRequestPage /> },
+      {path: "/request/create/:id", element: <CreateRequestPage /> }
     ],
     errorElement: <ErrorBoundary />,
   },

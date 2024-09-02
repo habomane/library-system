@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { Book } from "../models";
 import * as bookService from "../service";
 import { getLocation } from "../service";
@@ -69,9 +69,11 @@ function BookDetailsPage() {
             <p className="text-md mt-8 text-slate-500">{book.description}</p>
 
             <div className="flex flex-row items-center w-full justify-center md:justify-normal gap-x-5 md:w-[40%] mt-8">
-              <button className="rounded-lg px-4 py-2 font-medium bg-green-300 hover:bg-green-700 hover:text-white duration-300">
+              <Link to={`/request/create/${book.bookId}`}>
+              <button 
+              className="rounded-lg px-4 py-2 font-medium bg-green-300 hover:bg-green-700 hover:text-white duration-300">
                 Request
-              </button>
+              </button></Link>
               <button className="rounded-lg px-4 py-2 font-medium bg-yellow-500 hover:bg-yellow-800 hover:text-white duration-300">
                 Favorite
               </button>
