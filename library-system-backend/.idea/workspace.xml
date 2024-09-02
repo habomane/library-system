@@ -6,31 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="bd565107-a500-4837-8040-d3a27809464a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/controllers/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/controllers/BookController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/controllers/BookFavoriteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/controllers/BookFavoriteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/dtos/BookDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/dtos/BookDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/models/BookEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/models/BookEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/repositories/BookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/repositories/BookRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/repositories/DBBookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/repositories/DBBookRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/services/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/services/BookService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/services/BookServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/services/BookServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LibrarySystem-1.0-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LibrarySystem-1.0-SNAPSHOT.jar.original" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/library/dtos/BookDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/library/dtos/BookDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/library/models/BookEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/library/models/BookEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../library-system-frontend/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../library-system-frontend/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../library-system-frontend/src/helper/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../library-system-frontend/src/helper/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../library-system-frontend/src/helper/search.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../library-system-frontend/src/helper/search.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../library-system-frontend/src/layout/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../library-system-frontend/src/layout/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../library-system-frontend/src/mock/mockbook.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../library-system-frontend/src/mock/mockbook.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../library-system-frontend/src/models/items/book.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../library-system-frontend/src/models/items/book.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../library-system-frontend/src/pages/BookDetails.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../library-system-frontend/src/pages/BookDetails.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../library-system-frontend/src/pages/CreateBook.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../library-system-frontend/src/pages/CreateBook.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../library-system-frontend/src/pages/DiscoverPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../library-system-frontend/src/pages/DiscoverPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../library-system-frontend/src/pages/LibraryPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../library-system-frontend/src/pages/LibraryPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../library-system-frontend/src/utilities/items/BookCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../library-system-frontend/src/utilities/items/BookCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../library-system-frontend/src/utilities/items/BookFavoriteItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../library-system-frontend/src/utilities/items/BookFavoriteItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../library-system-frontend/src/utilities/items/BookListItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../library-system-frontend/src/utilities/items/BookListItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/controllers/RequestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/controllers/RequestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/dtos/RequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/dtos/RequestDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/dtos/RequestRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/dtos/RequestRequestDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/models/RequestEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/models/RequestEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/types/BookRequestStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/types/BookRequestStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/library/dtos/RequestDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/library/dtos/RequestDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/library/dtos/RequestRequestDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/library/dtos/RequestRequestDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/library/models/RequestEntity$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/library/models/RequestEntity$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/library/models/RequestEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/library/models/RequestEntity.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

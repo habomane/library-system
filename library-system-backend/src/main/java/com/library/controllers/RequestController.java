@@ -29,8 +29,8 @@ public class RequestController {
         try
         {
             List<Map<String, String>> filters = new ArrayList<>();
-            if(requesterUUID != null && !requesterUUID.isEmpty()) { filters.add(Collections.singletonMap("requestingUUID", requesterUUID)); }
-            if(receiverUUID != null && !receiverUUID.isEmpty()) { filters.add(Collections.singletonMap("receivingUUID", receiverUUID)); }
+            if(requesterUUID != null && !requesterUUID.isEmpty()) { filters.add(Collections.singletonMap("requestingUserId", requesterUUID)); }
+            if(receiverUUID != null && !receiverUUID.isEmpty()) { filters.add(Collections.singletonMap("receivingUserId", receiverUUID)); }
 
             List<RequestDTO> response = requestService.findAll(filters);
 

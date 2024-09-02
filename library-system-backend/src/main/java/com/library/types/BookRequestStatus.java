@@ -4,7 +4,5 @@ public enum BookRequestStatus {
     PENDING,
     CANCELED,
     APPROVED,
-    REJECTED,
-    NO_REQUEST,
-    RESOLVED
+    REJECTED
 }

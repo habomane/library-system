@@ -324,14 +324,14 @@ This endpoint allows users to retrieve all the existing requests for books. User
 [
     {
         "requestId": "66cb2ec46fab8a2ccc770aa3",
-        "requestingUUID": "Example Requester",
-        "receivingUUID": "Example Reciever",
+        "requestingUserId": "Example Requester",
+        "receivingUserId": "Example Reciever",
         "status": "APPROVED"
     },
     {
         "requestId": "66cb2eff6fab8a2ccc770aa4",
-        "requestingUUID": "Example Requester 1",
-        "receivingUUID": "Example Reciever 1",
+        "requestingUserId": "Example Requester 1",
+        "receivingUserId": "Example Reciever 1",
         "status": "PENDING"
     }
 ]
@@ -347,8 +347,8 @@ This endpoint allows users to retrieve the request associated with the ID provid
 
 {
  "requestId": "66cb2eff6fab8a2ccc770aa4",
- "requestingUUID": "Example Requester 1",
- "receivingUUID": "Example Reciever 1",
+ "requestingUserId": "Example Requester 1",
+ "receivingUserId": "Example Reciever 1",
  "status": "PENDING"
 }
 
@@ -365,8 +365,8 @@ This endpoint allows users to create a new request. The body of the requests fol
 // REQUEST BODY
 
 {
- "requestingUUID": "",
- "receivingUUID": "",
+ "requestingUserId": "",
+ "receivingUserId": "",
  "status": ""
 }
 ```
@@ -378,8 +378,8 @@ This endpoint will return the newly created request with the subsequent ID value
 
 {
  "requestId": "66cb2eff6fab8a2ccc770aa4",
- "requestingUUID": "Example Requester 1",
- "receivingUUID": "Example Reciever 1",
+ "requestingUserId": "Example Requester 1",
+ "receivingUserId": "Example Reciever 1",
  "status": "PENDING"
 }
 ```
@@ -392,8 +392,8 @@ This endpoint allows users to create several request entities at once. The body 
 // EXAMPLE REQUEST
 [
 {
- "requestingUUID": "",
- "receivingUUID": "",
+ "requestingUserId": "",
+ "receivingUserId": "",
  "status": ""
 }, 
 {..}
@@ -414,8 +414,8 @@ This endpoint allows users to update a request entity by supplying the request b
 
 {
  "requestId": "",
- "requestingUUID": "",
- "receivingUUID": "",
+ "requestingUserId": "",
+ "receivingUserId": "",
  "status": ""
 }
 
@@ -433,8 +433,8 @@ This endpoint allows users to update several request entities by supplying the r
 [
 {
  "requestId": "",
- "requestingUUID": "",
- "receivingUUID": "",
+ "requestingUserId": "",
+ "receivingUserId": "",
  "status": ""
 },
 {..}
