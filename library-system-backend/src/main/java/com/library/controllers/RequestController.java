@@ -78,7 +78,7 @@ public class RequestController {
     // POST
 
     @PostMapping("/create")
-    public ResponseEntity createBook(@RequestBody RequestRequestDTO request)
+    public ResponseEntity createRequest(@RequestBody RequestRequestDTO request)
     {
         try
         {
