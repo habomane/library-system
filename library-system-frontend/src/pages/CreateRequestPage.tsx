@@ -23,6 +23,7 @@ function CreateRequestPage() {
 
   const [user] = context;
 
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     async function getUserBook() {
       const response = await requestService.getBook(id || "");

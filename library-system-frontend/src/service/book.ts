@@ -1,4 +1,4 @@
-import { Book, BookRequest, BookRequestPut } from "../models";
+import { Book, BookFavorite, BookRequest, BookRequestPut } from "../models";
 
 const URL = import.meta.env.VITE_LIBRARY_SYSTEM_URL;
 
@@ -106,4 +106,19 @@ export async function updateBook(book: BookRequestPut)
       const data  = await response.json();
       return data;
       
+}
+
+export async function getBookByFavorite(favorites: BookFavorite[])
+{
+    const items = favorites.map(async (item) => {
+        const response = await fetch(`${URL}/book/${item.bookId}`); 
+        const data = await response.json()
+        return new Book(data["bookId"], data["title"], data["author"],
+            data["genre"], data["image"], data["available"], data["zipcode"],
+            data["description"], data["ownerUserId"], data["dateCreated"])
+        
+    })
+
+    return Promise.all(items);
+
 }

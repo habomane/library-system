@@ -1,14 +1,18 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useParams, Link } from "react-router-dom";
-import { Book } from "../models";
+import { Book, BookFavorite, BookFavoriteRequest } from "../models";
 import * as bookService from "../service";
 import { getLocation } from "../service";
+import { UserContext } from "../App";
 
 function BookDetailsPage() {
   const bookDefault = new Book("", "", "", "", "", false, "", "", "", "");
   const { id } = useParams();
   const [book, setBook] = useState(bookDefault);
   const [formattedAddress, setFormattedAddress] = useState("");
+  const context = useContext(UserContext);
+  const [isFavorite, setIsFavorite] = useState(false);
+  const [bookFavorite, setBookFavorite] = useState(new BookFavorite("", "", ""))
 
   useEffect(() => {
     async function getUserBook() {
@@ -20,6 +24,7 @@ function BookDetailsPage() {
     getUserBook();
   }, [id]);
 
+
   useEffect(() => {
     async function setLocationReadable() {
       const location = await getLocation(book.zipcode);
@@ -30,6 +35,39 @@ function BookDetailsPage() {
       setLocationReadable();
     }
   }, [book]);
+
+  if(!context) { return null; }
+  const [user] = context;
+
+  useEffect(() => {
+    async function getFavorite()
+    {
+      const favorites = await bookService.getFavorite(user.userId, book.bookId)
+      if(favorites !== null && favorites !== undefined && favorites.length > 0 ) { 
+        setIsFavorite(true);
+        setBookFavorite(favorites[0])
+      }
+    }
+
+    if(user.userId !== "" && book.bookId !== "") { getFavorite() }
+  
+  }, [user, book])
+
+  async function favoriteBook()
+  {
+    if(!isFavorite) 
+    {
+      const response = await bookService.createFavorite(new BookFavoriteRequest(user.userId, book.bookId))
+      if(response !== null) { alert("Book has been favorited."); setIsFavorite(true)}
+      return
+    }
+
+    if(isFavorite)
+    {
+      const response = await bookService.deleteFavorite(bookFavorite.bookFavoriteId);
+      if(response !== null) { alert("Book is no longer a favorite."); setIsFavorite(false);}
+    }
+  }
 
   return (
     <main className="container mx-auto">
@@ -74,8 +112,10 @@ function BookDetailsPage() {
               className="rounded-lg px-4 py-2 font-medium bg-green-300 hover:bg-green-700 hover:text-white duration-300">
                 Request
               </button></Link>
-              <button className="rounded-lg px-4 py-2 font-medium bg-yellow-500 hover:bg-yellow-800 hover:text-white duration-300">
-                Favorite
+              <button 
+              onClick={favoriteBook}
+              className="rounded-lg px-4 py-2 font-medium bg-yellow-500 hover:bg-yellow-800 hover:text-white duration-300">
+                {isFavorite ? "Remove Favorite": "Favorite"}
               </button>
             </div>
           </div>

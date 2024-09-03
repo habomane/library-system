@@ -1,28 +1,18 @@
 
-import { useState, useEffect, useContext } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import { Request, RequestRequest } from "../models";
-import { UserContext } from "../App";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { Request } from "../models";
 import * as requestService from '../service'
 import * as helper from '../helper'
 import { RequestStatus } from "../types";
 
 
 function RequestedRequestPage() {
-  const navigate = useNavigate();
   const { id } = useParams();
-  const context = useContext(UserContext);
   const requestDefault = new Request("", "", "", "", "", "");
   const [bookRequest, setRequest] = useState(requestDefault);
   const [details, setDetails] = useState("");
   const [disabled, setDisabled] = useState(false);
-
-  if(!context)
-    {
-      return null;
-    }
-
-  const [user] = context;
 
   useEffect(() => {
     async function getReceivedRequest() {
@@ -41,7 +31,6 @@ function RequestedRequestPage() {
 
   async function updateRequest()
   {
-    if(bookRequest.status === 'CANCELED') { alert("Cannot update request. Request has already been canceled."); return;}
     bookRequest.details = details;
     const response = await requestService.updateRequest(bookRequest);
     if(response === null) {alert("Something went wrong. Please try again later"); return;}
@@ -51,7 +40,6 @@ function RequestedRequestPage() {
 
   async function cancelRequest()
   {
-    if(bookRequest.status === 'CANCELED') { alert("Request has already been canceled."); return;}
     bookRequest.status = helper.transformBookStatusToRequestString(RequestStatus.CANCELED) || "";
     const response = await requestService.updateRequest(bookRequest);
     if(response === null) {alert("Something went wrong. Please try again later"); return;}

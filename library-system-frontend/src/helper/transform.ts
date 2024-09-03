@@ -25,7 +25,7 @@ export function transformBookStatusString(genre: string)
 
 export function transformBookStatusToRequestString(genre: string)
 {   
-    return Object.keys(RequestStatus).find(item => RequestStatus[item] === genre);
+    return Object.keys(RequestStatus).find((item) => RequestStatus[item] === genre);
 
 }
     

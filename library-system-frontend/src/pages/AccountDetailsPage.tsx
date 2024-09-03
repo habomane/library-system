@@ -18,6 +18,7 @@ function AccountDetailsPage() {
   }
   const [user, setUser] = context;
 
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
   setDescription(user.description);
   setDisplayName(user.displayName);

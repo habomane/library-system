@@ -1,5 +1,4 @@
 
-import { Link } from "react-router-dom";
 import { useContext, useState, useEffect } from "react";
 import { UserContext } from "../App";
 import * as requestService from '../service'
@@ -18,6 +17,7 @@ function BookRequestPage()
     const [user] = context;
 
 
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(() => {
         async function getRequests() 
         {

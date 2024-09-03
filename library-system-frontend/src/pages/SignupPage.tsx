@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
 import sessionless from 'sessionless-node';
-import { useState, useEffect } from "react";
+import { useState, useEffect, SetStateAction } from "react";
 import * as userService from '../service'
 import { UserRequest } from "../models";
 function SignUpPage()
 {
   const [newKey, saveNewKey] = useState("");
 
-  const saveKeys = (key) => { saveNewKey(key["privateKey"]); };
-  const getKeys = (key) => {};
+  const saveKeys = (key: { [x: string]: SetStateAction<string>; }) => { saveNewKey(key["privateKey"]); };
+  const getKeys = () => {};
 
   async function generateKeys() { sessionless.generateKeys(saveKeys, getKeys); }
 
