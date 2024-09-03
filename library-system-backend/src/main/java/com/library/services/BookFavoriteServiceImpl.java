@@ -22,7 +22,7 @@ public class BookFavoriteServiceImpl implements BookFavoriteService{
     }
 
     @Override
-    public List<BookFavoriteDTO> findAll(Map<String, String> filters) {
+    public List<BookFavoriteDTO> findAll(List<Map<String, String>> filters) {
         return bookFavoriteRepository.findAll(filters).stream().map(BookFavoriteDTO::new).toList();
     }
 

@@ -6,25 +6,25 @@ import java.util.UUID;
 
 public class BookFavoriteRequestDTO {
 
-    public String uuid;
+    public String userId;
     public String bookId;
 
     public BookFavoriteRequestDTO() {}
 
     public BookFavoriteRequestDTO(BookFavoriteEntity favorite)
     {
-        this.uuid = favorite.getUuid().toString();
+        this.userId = favorite.getUserId();
         this.bookId = favorite.getBookId();
     }
 
     public BookFavoriteEntity toBookFavoriteEntity()
     {
-        return new BookFavoriteEntity(uuid, bookId);
+        return new BookFavoriteEntity(userId, bookId);
     }
 
     public boolean isValid()
     {
-        return uuid == null && bookId == null && bookId.isEmpty() ? false : true;
+        return userId == null && bookId == null && bookId.isEmpty() ? false : true;
     }
 
 }

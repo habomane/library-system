@@ -7,7 +7,7 @@ public interface BookFavoriteService {
 
     BookFavoriteDTO find(String id);
 
-    List<BookFavoriteDTO> findAll(Map<String, String> filters);
+    List<BookFavoriteDTO> findAll(List<Map<String, String>> filters);
 
     BookFavoriteDTO post(BookFavoriteRequestDTO favorite);
 

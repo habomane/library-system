@@ -30,12 +30,16 @@ public class BookFavoriteController {
     // GET
 
     @GetMapping("/")
-    public ResponseEntity getFavorites(@RequestParam(name="userId", required = false) String uuid)
+    public ResponseEntity getFavorites(@RequestParam(name="userId", required = false) String userId,
+                                       @RequestParam(name="bookId", required=false) String bookId)
     {
         try
         {
-            Map<String, String> filters = new HashMap<>();
-            if(uuid != null && !uuid.isEmpty()) { filters.put("uuid", uuid); }
+            List<Map<String, String>> filters = new ArrayList<Map<String, String>>();
+
+            if(userId != null && !userId.isEmpty()) { filters.add(Collections.singletonMap("userId", userId)); }
+            if(bookId != null && !bookId.isEmpty()) { filters.add(Collections.singletonMap("bookId", bookId)); }
+
             List<BookFavoriteDTO> response = bookFavoriteService.findAll(filters);
 
             return ResponseEntity.status(HttpStatus.OK)

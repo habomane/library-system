@@ -47,14 +47,24 @@ public class DBBookFavoriteRepository implements BookFavoriteRepository{
     }
 
     @Override
-    public List<BookFavoriteEntity> findAll(Map<String, String> filters) {
-        if(filters.isEmpty() || filters == null) { return favoritesCollection.find().into(new ArrayList<>()).stream().map(BookFavoriteEntity::new).toList(); }
+    public List<BookFavoriteEntity> findAll(List<Map<String, String>> filters) {
+        if(filters.size() == 0 || filters.isEmpty()) { return favoritesCollection.find().into(new ArrayList<>()).stream().map(BookFavoriteEntity::new).toList(); }
 
-        String key = filters.keySet().iterator().next();
-        String value = filters.values().iterator().next();
-        Bson filterRequestData = Filters.eq(key, value);
+        if(filters.size() == 1)
+        {
+            String key = filters.get(0).keySet().iterator().next();
+            String value = filters.get(0).values().iterator().next();
+            Bson filterRequestData = Filters.eq(key, value);
+            return favoritesCollection.find(filterRequestData).into(new ArrayList<>()).stream().map(BookFavoriteEntity::new).toList();
+        }
+        String key = filters.get(0).keySet().iterator().next();
+        String value = filters.get(0).values().iterator().next();
+        String key1 = filters.get(1).keySet().iterator().next();
+        String value1 = filters.get(1).values().iterator().next();
 
-        return favoritesCollection.find(filterRequestData).into(new ArrayList<>()).stream().map(BookFavoriteEntity::new).toList();
+        Bson combinedFilter = Filters.and( Filters.eq(key, value), Filters.eq(key1, value1));
+
+        return favoritesCollection.find(combinedFilter).into(new ArrayList<>()).stream().map(BookFavoriteEntity::new).toList();
     }
 
     @Override

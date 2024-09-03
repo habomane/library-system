@@ -9,7 +9,7 @@ public interface BookFavoriteRepository {
 
     BookFavoriteEntity find(String id);
 
-    List<BookFavoriteEntity> findAll(Map<String, String> filters);
+    List<BookFavoriteEntity> findAll(List<Map<String, String>> filters);
 
     BookFavoriteEntity save(BookFavoriteEntity bookFavorite);
 

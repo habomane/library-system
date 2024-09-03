@@ -6,21 +6,35 @@
   <component name="ChangeListManager">
     <list default="true" id="bd565107-a500-4837-8040-d3a27809464a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/controllers/RequestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/controllers/RequestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/controllers/BookFavoriteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/controllers/BookFavoriteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/dtos/BookFavoriteDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/dtos/BookFavoriteDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/dtos/BookFavoriteRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/dtos/BookFavoriteRequestDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/models/BookFavoriteEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/models/BookFavoriteEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/repositories/BookFavoriteRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/repositories/BookFavoriteRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/repositories/DBBookFavoriteRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/repositories/DBBookFavoriteRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/services/BookFavoriteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/services/BookFavoriteService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/services/BookFavoriteServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/services/BookFavoriteServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/LibrarySystem-1.0-SNAPSHOT.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/LibrarySystem-1.0-SNAPSHOT.jar.original" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/library/controllers/RequestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/library/controllers/RequestController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/library/dtos/RequestDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/library/dtos/RequestDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/library/dtos/RequestRequestDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/library/dtos/RequestRequestDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/library/models/RequestEntity$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/library/models/RequestEntity$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/library/models/RequestEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/library/models/RequestEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/library/types/BookRequestStatus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/library/types/BookRequestStatus.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../library-system-frontend/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../library-system-frontend/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../library-system-frontend/src/models/request.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../library-system-frontend/src/models/request.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/library/controllers/BookFavoriteController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/library/controllers/BookFavoriteController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/library/dtos/BookFavoriteDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/library/dtos/BookFavoriteDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/library/dtos/BookFavoriteRequestDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/library/dtos/BookFavoriteRequestDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/library/models/BookFavoriteEntity$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/library/models/BookFavoriteEntity$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/library/models/BookFavoriteEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/library/models/BookFavoriteEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/library/repositories/BookFavoriteRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/library/repositories/BookFavoriteRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/library/repositories/DBBookFavoriteRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/library/repositories/DBBookFavoriteRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/library/services/BookFavoriteService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/library/services/BookFavoriteService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/library/services/BookFavoriteServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/library/services/BookFavoriteServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../library-system-frontend/src/helper/transform.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../library-system-frontend/src/helper/transform.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../library-system-frontend/src/models/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../library-system-frontend/src/models/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../library-system-frontend/src/pages/AccountDetailsPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../library-system-frontend/src/pages/AccountDetailsPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../library-system-frontend/src/pages/BookRequestPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../library-system-frontend/src/pages/BookRequestPage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../library-system-frontend/src/pages/CreateRequestPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../library-system-frontend/src/pages/CreateRequestPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../library-system-frontend/src/pages/RequestDetailPage.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../library-system-frontend/src/pages/LibraryPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../library-system-frontend/src/pages/LibraryPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../library-system-frontend/src/pages/RequestedRequestPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../library-system-frontend/src/pages/RequestedRequestPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../library-system-frontend/src/pages/SignupPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../library-system-frontend/src/pages/SignupPage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../library-system-frontend/src/service/book.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../library-system-frontend/src/service/book.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../library-system-frontend/src/service/bookrequest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../library-system-frontend/src/service/bookrequest.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../library-system-frontend/src/service/bookfavorite.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../library-system-frontend/src/service/bookfavorite.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
