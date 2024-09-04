@@ -35,7 +35,7 @@ function CreateBookPage() {
   const discard = () => 
     {
     alert("Modifications have been discarded.")
-    navigate("/library");
+    navigate("/");
   }
 
   async function createBook()

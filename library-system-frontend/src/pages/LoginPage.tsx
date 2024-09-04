@@ -32,7 +32,7 @@ function LoginPage()
 
    return (
     <main className="flex justify-center items-center w-full h-full">
-        <div className="w-96 rounded-lg shadow-lg p-5 bg-green-700 text-white">
+        <div className="w-[90%] md:w-96 rounded-lg shadow-lg p-5 bg-green-700 text-white">
   <h2 className="text-2xl font-bold pb-5 text-center">Log In</h2>
   <label  className="block mb-2 text-sm font-medium">Private Key</label>
       <input

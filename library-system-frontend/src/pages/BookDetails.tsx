@@ -110,15 +110,18 @@ function BookDetailsPage() {
             <div className="flex flex-row items-center w-full justify-center md:justify-normal gap-x-5 md:w-[40%] mt-8">
               <Link to={`/request/create/${book.bookId}`}>
               <button 
-              className="rounded-lg px-4 py-2 font-medium bg-green-300 hover:bg-green-700 hover:text-white duration-300">
+              disabled={user.userId === "" ? true: false}
+              className= {`rounded-lg px-4 py-2 font-medium ${user.userId === "" ? 'bg-green-800 text-gray-300': 'bg-green-300 hover:bg-green-700 hover:text-white '} duration-300`}>
                 Request
               </button></Link>
               <button 
+              disabled={user.userId === "" ? true: false}
               onClick={favoriteBook}
-              className="rounded-lg px-4 py-2 font-medium bg-yellow-500 hover:bg-yellow-800 hover:text-white duration-300">
+              className={`rounded-lg px-4 py-2 font-medium  ${user.userId === "" ? 'bg-yellow-700 text-gray-300': 'bg-yellow-500 hover:bg-yellow-800 hover:text-white  '}  duration-300`}>
                 {isFavorite ? "Remove Favorite": "Favorite"}
               </button>
             </div>
+            <div className={user.userId === ""? "mt-3 text-slate-500 text-xs": "hidden"}>Users must be logged in to request/favorite books.</div>
         </div>
         </div>
       </div>

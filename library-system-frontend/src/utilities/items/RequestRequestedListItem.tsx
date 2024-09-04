@@ -1,16 +1,17 @@
 import { Request } from "../../models";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import * as requestService from '../../service'
 
 function RequestRequestedListItem({ request }: { request: Request }) {
 
+  const navigate = useNavigate();
   async function deleteRequest()
   {
     const response = await requestService.deleteRequest(request.requestId);
     if(response !== null)
     {
       alert("Request has been deleted.")
-      window.location.reload();
+      navigate('/discover');
     }
     else 
     {

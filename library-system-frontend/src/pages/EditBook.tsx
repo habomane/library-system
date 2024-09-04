@@ -170,6 +170,8 @@ function EditBookPage()
                  className="rounded-lg px-4 py-2 font-medium bg-red-500 hover:bg-red-800 hover:text-white duration-300">
                   Discard
                 </button>
+
+
               </div>
             </div>
           </div>

@@ -25,8 +25,8 @@ function SignUpPage()
 
 
     return (
-    <main className="flex justify-center items-center w-full h-full">
-        <div className="w-96 rounded-lg shadow-lg p-5 bg-green-700 text-white">
+    <main className="flex justify-center items-center md:w-full h-full ">
+        <div className="w-[90%] md:w-96 rounded-lg shadow-lg p-10 bg-green-700 text-white">
   <h2 className="text-2xl font-bold pb-5 text-center">Sign Up</h2>
     <div className="flex flex-col items-center gap-y-5 justify-between mb-4">
       {
@@ -36,7 +36,7 @@ function SignUpPage()
           <p className="break-all"><span className="font-semibold">Private Key: <br></br> </span>{newKey}</p>
 
         </div>
-        <div className="flex items-center text-sm">
+        <div className="flex flex-col md:flex-row gap-y-1 items-center text-sm">
         <p>Copy this key, you will need it to sign in!</p>
         <Link to="/login"><p className="underline cursor-pointer ml-1">Sign in</p></Link>
       </div>

@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { Request } from "../models";
 import * as requestService from "../service";
 import * as helper from "../helper";
 import { RequestStatus } from "../types";
 
 function ReceivedRequestPage() {
+  const navigate = useNavigate();
   const { id } = useParams();
   const requestDefault = new Request("", "", "", "", "", "");
   const [bookRequest, setRequest] = useState(requestDefault);
@@ -34,7 +35,7 @@ function ReceivedRequestPage() {
     }
 
     alert("Requester has been notified of the approval.");
-    window.location.reload();
+    navigate('/request');
   }
 
   async function rejectRequest() {
@@ -45,7 +46,7 @@ function ReceivedRequestPage() {
       alert("Something went wrong. Please try again later");
       return;
     }
-    window.location.reload();
+    navigate('/request');
     alert("Requester has been notified of the rejection.");
   }
 

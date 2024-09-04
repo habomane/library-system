@@ -1,9 +1,9 @@
 import { Book } from "../../models";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import * as bookService from '../../service'
 
 function BookListItem({ book }: { book: Book }) {
-
+  const navigate = useNavigate();
   async function deleteBook()
   {
     const oldBookName = book.title;
@@ -11,7 +11,7 @@ function BookListItem({ book }: { book: Book }) {
     if(response !== null)
     {
       alert(`Title ${oldBookName} has been deleted.`)
-      window.location.reload();
+      navigate('/discover');
     }
     else 
     {
