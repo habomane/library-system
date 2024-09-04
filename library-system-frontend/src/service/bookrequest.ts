@@ -9,7 +9,7 @@ export async function getRequestByRequester(requestingUserId: string)
 
     const data = await response.json();
     
-    return data.map((item) => {
+    return data.map((item: { [x: string]: string; }) => {
         return new Request(item["requestId"], item["requestingUserId"], item["receivingUserId"], 
             item["status"], item["details"], item["dateCreated"]
         )
@@ -23,7 +23,7 @@ export async function getRequestByReceiver(receivingUserId: string)
 
     const data = await response.json();
     
-    return data.map((item) => {
+    return data.map((item: { [x: string]: string; }) => {
         return new Request(item["requestId"], item["requestingUserId"], item["receivingUserId"], 
             item["status"], item["details"], item["dateCreated"]
         )

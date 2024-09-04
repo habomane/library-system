@@ -17,7 +17,7 @@ export class Book {
     author: string,
     genre: string,
     image: string,
-    available: boolean,
+    available: string,
     zipcode: string,
     description: string,
     ownerUserId: string,
@@ -27,7 +27,7 @@ export class Book {
     this.title = title;
     this.author = author;
     this.image = image;
-    this.available = available;
+    this.available = available === "true" ? true : false;
     this.zipcode = zipcode;
     this.description = description;
     this.ownerUserId = ownerUserId;

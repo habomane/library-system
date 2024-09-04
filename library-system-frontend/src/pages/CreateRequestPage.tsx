@@ -13,7 +13,7 @@ function CreateRequestPage() {
   const { id } = useParams();
   const context = useContext(UserContext);
   const [details, setDetails] = useState("")
-  const bookDefault = new Book("", "", "", "", "", false, "", "", "", "");
+  const bookDefault = new Book("", "", "", "", "", "false", "", "", "", "");
   const [book, setBook] = useState(bookDefault);
 
   if(!context)
@@ -48,12 +48,12 @@ function CreateRequestPage() {
     const request = new RequestRequest(user.userId, book.ownerUserId, helper.transformBookStatusToRequestString(RequestStatus.PENDING) || "", details);
     const response = requestService.createNewRequest(request);
     if(response === null) { alert("Something went wrong. Please try again later."); return;}
-    alert("Response has been created");
+    alert("Request has been created");
     navigate('/request');
   }
 
   return (
-    <main className="container mx-auto">
+    <main className="container mx-auto px-3 py-3 md:p-0">
       <div className="flex flex-col gap-y-3 gap-x-3 items-center mt-8">
         <div className="w-full bg-white rounded-lg shadow-2xl ">
           <div className="py-12 px-5 md:pl-10">

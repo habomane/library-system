@@ -34,28 +34,33 @@ function BookRequestPage()
 
 
     return (
-        <main className="container mx-auto">
+        <main className="container py-5 px-8 md:mx-auto md:p-0">
             <h1 className="my-5 text-3xl font-bold">My <span className="text-green-700">Requests</span></h1>
 
             <div className="mt-10">
                 <h2 className="text-2xl font-semibold ">Requests <span className="text-green-700">Recieved</span></h2>
                 <div className="border-t w-full mt-2">
+                    <div className="flex flex-col gap-y-2 mt-1">
                     {
                         receivedRequests.map((item, key) => {
                             return <RequestReceivedListItem request={item} key = {key} />
                         })
                     }
+                    </div>
+
                 </div>
             </div>
 
             <div className="mt-10">
                 <h2 className="text-2xl font-semibold ">Requests <span className="text-green-700">Sents</span></h2>
                 <div className="border-t w-full mt-2">
+                <div className="flex flex-col gap-y-2 mt-1">
                     {
                         sentRequests.map((item, key) => {
                             return <RequestRequestedListItem request={item} key = {key} />
                         })
                     }
+                </div>
                 </div>
             </div>
         </main>

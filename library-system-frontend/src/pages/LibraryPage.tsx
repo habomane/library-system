@@ -41,6 +41,7 @@ function LibraryPage() {
   }, [user.userId]);
 
 
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     async function getUserFavoriteBooks()
     {
@@ -52,7 +53,7 @@ function LibraryPage() {
   }, [userFavorites])
 
   return (
-    <main className="container mx-auto">
+    <main className="container py-5 px-8 md:mx-auto md:p-0">
       <h1 className="mt-5 text-3xl font-bold">
         My <span className="text-green-700">Library</span>
       </h1>

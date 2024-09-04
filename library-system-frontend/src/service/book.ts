@@ -9,7 +9,7 @@ export async function getAllBooks()
 
     const data = await response.json();
     
-    return data.map((item) => {
+    return data.map((item: { [x: string]: string; }) => {
         return new Book(item["bookId"], item["title"], item["author"],
             item["genre"], item["image"], item["available"], item["zipcode"],
             item["description"], item["ownerUserId"], item["dateCreated"]
@@ -25,7 +25,7 @@ export async function getAllBooksUser(userId: string)
 
     const data = await response.json();
     
-    return data.map((item) => {
+    return data.map((item: { [x: string]: string; }) => {
         return new Book(item["bookId"], item["title"], item["author"],
             item["genre"], item["image"], item["available"], item["zipcode"],
             item["description"], item["ownerUserId"], item["dateCreated"]
@@ -83,10 +83,37 @@ export async function deleteBook(bookId: string)
       const response = await fetch(`${URL}/book/delete/${bookId}`, options);
       if(response.status !== 202) { return null; }
 
-      const data  = await response.json();
-      return data;
+      const favorites = await deleteBookFavorites(bookId)
+      return favorites ? true: null;
       
 }
+
+export async function deleteBookFavorites(bookId: string)
+{
+    const options = {
+        method: "DELETE",
+        headers: {
+          "Accept": "*/*",
+          "Content-Type": "application/json"
+        }
+      };
+      const allFavorites = await fetch(`${URL}/favorite/?bookId=${bookId}`)
+      const allFavoritesData = await allFavorites.json();
+      
+      if(allFavorites)
+      {
+        const response = allFavoritesData.map(async (element: { [x: string]: string; }) => {
+            return await fetch(`${URL}/favorite/delete/${element["bookFavoriteId"]}`, options);
+          });  
+
+          const data = await response;
+          return data;
+      }
+
+
+
+}
+
 
 export async function updateBook(book: BookRequestPut)
 {

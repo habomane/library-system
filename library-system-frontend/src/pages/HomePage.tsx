@@ -7,7 +7,7 @@ function HomePage()
     return (
         <main>
             <section className="home-bg flex px-20 items-center">
-                <h1 className="text-white text-7xl font-extrabold md:w-1/2 tracking-wide text-left">
+                <h1 className="text-white text-6xl md:text-7xl font-extrabold md:w-1/2 tracking-wide text-left">
                  Connect, Share, and Discover New Reads
                 </h1>
             </section>

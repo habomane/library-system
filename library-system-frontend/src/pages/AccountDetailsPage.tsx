@@ -94,7 +94,7 @@ function AccountDetailsPage() {
               </button>
               <button 
         onClick={logOut}
-        className="rounded-lg px-4 py-2 font-medium bg-yellow-500 hover:bg-yellow-800 hover:text-white duration-300">
+        className="rounded-lg px-4 py-2 text-sm font-medium md:text-base bg-yellow-500 hover:bg-yellow-800 hover:text-white duration-300">
          Log Out
               </button>
         <button 

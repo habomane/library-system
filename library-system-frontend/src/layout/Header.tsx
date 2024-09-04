@@ -24,7 +24,7 @@ function Header() {
         : "z-30 block lg:hidden focus:outline-none hamburger";
     const itemOpenDisplay =
       navOpenDisplay === true
-        ? "absolute fixed p-6 bg-gray-50 flex flex-col py-20 items-center gap-y-5 w-[100vw] h-[100vh] top-0 left-0 z-100 transition-all lg:hidden"
+        ? "absolute fixed p-6 bg-gray-50 flex flex-col py-20 items-center gap-y-5 w-[100vw] h-screen overscroll-y-none top-0 left-0 z-20 transition-all lg:hidden"
         : "hidden";
     const regularNavDisplay = 
     navOpenDisplay === true ? "hidden": `hidden lg:flex flex flex-row justify-between ${user.userId === "" ? "w-[15%]" : "w-[35%]"}`;

@@ -8,7 +8,7 @@ import * as helper from '../helper'
 
 function EditBookPage()
 {
-    const bookDefault = new Book("", "", "", "", "", false, "", "", "", "");
+    const bookDefault = new Book("", "", "", "", "", "false", "", "", "", "");
     const { id } = useParams();
     const [book, setBook] = useState(bookDefault);
     const navigate = useNavigate();
@@ -22,12 +22,12 @@ function EditBookPage()
     const [description, setDescription] = useState("");
     const [image, setImage] = useState("");
   
-    function updateStates(book: Book)
+    function updateStates()
 {
     setTitle(book.title)
     setAuthor(book.author)
     setZipcode(book.zipcode)
-    setGenre(helper.transformGenreString(book.genre) || "")
+    setGenre(book.genre)
     setDescription(book.description)
     setImage(book.image)
     setAvailable(book.available)
@@ -37,13 +37,15 @@ function EditBookPage()
           const response = await bookService.getBook(id || "");
           if (response !== null) {
             setBook(response);
-            updateStates(response);
           }
         }
         getBookToEdit();
       }, [id]);
   
-  
+  useEffect(() => {
+    updateStates()
+  }, [book])
+
     const discard = () => 
       {
       alert("Modifications have been discarded.")
@@ -53,8 +55,9 @@ function EditBookPage()
     async function updateBook()
     {
       if(title === "" || author === "") { alert("Title and author are required."); return;}
-      const transformedGenre = helper.transformGenreToRequestString(genre) || "";
+      const transformedGenre = helper.transformGenreToRequestString(genre) ;
       const updatedBook = new BookRequestPut(book.bookId, title, author, transformedGenre, image, available, zipcode, description, book.ownerUserId, book.dateCreated.toISOString());
+      console.log(updatedBook)
       const response = await bookService.updateBook(updatedBook);
       if(response?.bookId !== null || response.bookId !== undefined) { 
         alert("Book has been modified");

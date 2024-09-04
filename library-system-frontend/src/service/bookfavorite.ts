@@ -11,7 +11,7 @@ export async function getFavorite(userId: string, bookId: string)
 
     const data = await response.json();
     
-    return data.map((item) => {
+    return data.map((item: { [x: string]: string; }) => {
         return new BookFavorite(item["bookFavoriteId"], item["userId"], item["bookId"]);
     })
 }
@@ -23,7 +23,7 @@ export async function getFavoriteByUser(userId: string)
 
     const data = await response.json();
 
-    return data.map((item) => {
+    return data.map((item: { [x: string]: string; }) => {
         return new BookFavorite(item["bookFavoriteId"], item["userId"], item["bookId"]);
     })
 }

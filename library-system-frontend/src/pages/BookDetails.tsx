@@ -6,7 +6,7 @@ import { getLocation } from "../service";
 import { UserContext } from "../App";
 
 function BookDetailsPage() {
-  const bookDefault = new Book("", "", "", "", "", false, "", "", "", "");
+  const bookDefault = new Book("", "", "", "", "", "false", "", "", "", "");
   const { id } = useParams();
   const [book, setBook] = useState(bookDefault);
   const [formattedAddress, setFormattedAddress] = useState("");
@@ -39,6 +39,7 @@ function BookDetailsPage() {
   if(!context) { return null; }
   const [user] = context;
 
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     async function getFavorite()
     {
@@ -70,9 +71,9 @@ function BookDetailsPage() {
   }
 
   return (
-    <main className="container mx-auto">
+    <main className="container mx-auto p-1">
       <div className="flex flex-col md:flex-row gap-y-3 gap-x-3 justify-around mt-8">
-        <div className="w-screen px-5 md:px-0 md:w-[40%] ">
+        <div className="w-screen px-8 md:px-0 md:w-[40%] ">
           <img
             src={
               book.image === ""
@@ -118,7 +119,7 @@ function BookDetailsPage() {
                 {isFavorite ? "Remove Favorite": "Favorite"}
               </button>
             </div>
-          </div>
+        </div>
         </div>
       </div>
     </main>

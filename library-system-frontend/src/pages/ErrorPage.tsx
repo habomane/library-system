@@ -13,7 +13,7 @@ function ErrorBoundary() {
     return (
         <main className="flex flex-col justify-center items-center h-[100vh]">
         <h1 className="text-3xl font-bold text-red-800">Error</h1>
-        <div>{"Internal "}</div>
+        <div>Something went wrong. Please try again later.</div>
 
         </main>  )
   }
